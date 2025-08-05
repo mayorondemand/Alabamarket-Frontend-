@@ -63,7 +63,7 @@ const FAQPage: React.FC = () => {
       
 
       
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="md:bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
           {faqs.map((faq, index) => (
             <FaqItem

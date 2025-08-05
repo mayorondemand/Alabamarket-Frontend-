@@ -17,8 +17,9 @@ module.exports = {
 		border:"#7D89C2",
 		description:"#8B92AA",
 		name:"#3E4561",
-		neatBg:" #E4E5E9"
-		
+		neatBg:" #E4E5E9",
+		active:"#D7DBEC"
+
       },
       fontFamily: {
         sans: ["Inter", "sans-serif",'var(--font-poppins)',],

@@ -102,7 +102,7 @@ p {
 @layer components {
   .container,body {
     margin: auto;
-    max-width: 1536px;
+    max-width: 4000px;
   }
 
   @media screen and (max-width: 640px) {

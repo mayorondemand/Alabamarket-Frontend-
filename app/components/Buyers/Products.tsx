@@ -60,11 +60,21 @@ const Products = () => {
     negotiable: false,
     neatlyUsed: true,
     img: "/product.png",
-  },])
+  },
+{
+    name: "PlayStation 5",
+    price: 450000,
+    fixed:false,
+    description: "Latest PS5 console, used a few times only.",
+    negotiable: false,
+    neatlyUsed: true,
+    img: "/product.png",
+  },
+])
 
 
   return (
-    <section className={`container `}>
+    <section>
       <div className=" flex justify-end gap-4 items-center">
          
 
@@ -93,9 +103,9 @@ const Products = () => {
      
       </div>
 
-      <div className={`grid gap-5  ${linear?`md:grid-cols-2 lg:grid-cols-4`:`md:grid-cols-2 lg:grid-cols-2`}`}>
+      <div className={`grid gap-5  ${linear?`md:grid-cols-2 lg:grid-cols-5 lg:overflow-x-scroll`:`md:grid-cols-2 lg:grid-cols-2`}`}>
      {Products.map((item,index)=>{
-      return <div key={index} className={`border rounded-md ${linear?``:`flex justify-between`}`}>
+      return <div key={index} className={`border rounded-md ${linear?``:`flex justify-between`} lg:shrink-0`}>
 
         <div>
           <Image src={item.img} alt={item.name} width={300}  height={200} className="w-full"/>
