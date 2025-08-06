@@ -56,7 +56,6 @@ const IconLink = ({
           </div>
         </div>
 
-        {/* Search bar */}
         <form  onSubmit={(e) => {
     e.preventDefault();
     search();

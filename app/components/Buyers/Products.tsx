@@ -2,6 +2,8 @@
 'use client'
 import { useState } from "react";
 import Image from "next/image";
+import { Heart } from "lucide-react";
+
 const Products = () => {
 
   const [linear,setLinear]=useState(true)
@@ -103,12 +105,18 @@ const Products = () => {
      
       </div>
 
-      <div className={`grid gap-5  ${linear?`md:grid-cols-2 lg:grid-cols-5 lg:overflow-x-scroll`:`md:grid-cols-2 lg:grid-cols-2`}`}>
+      <div className={`grid gap-5  ${linear?`md:grid-cols-2 lg:grid-cols-5 `:`md:grid-cols-2 lg:grid-cols-2`}`}>
      {Products.map((item,index)=>{
       return <div key={index} className={`border rounded-md ${linear?``:`flex justify-between`} lg:shrink-0`}>
 
-        <div>
+        <div className="relative">
           <Image src={item.img} alt={item.name} width={300}  height={200} className="w-full"/>
+           <button
+    className="absolute top-2 left-2 bg-white/80 hover:bg-white rounded p-1"
+    aria-label="Add to favorites"
+  >
+    <Heart size={18} className="fill-white" />
+  </button>
           </div>
 
          <div> <div className={`flex p-4 gap-3   md: ${linear?'flex-row items-center justify-between':' flex-col md:flex-row md:items-center md:justify-between'}`}> 

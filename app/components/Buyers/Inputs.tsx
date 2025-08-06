@@ -14,7 +14,7 @@ const Input= () => {
 
   return (
    <section className='flex flex-col items-center justify-center'>
-     <form className="w-full max-w-4xl  p-4">
+     <form className="w-full max-w-4xl flex flex-col gap-4  p-4">
     
       <div>
         <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">

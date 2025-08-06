@@ -46,9 +46,11 @@ const PriceFilter = () => {
                 setMinPrice(e.target.value);
                 setSelectedRange('');
               }}
-              className="w-f border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="ml-1 border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
             /></div>
+
             <span>-</span>
+
             <div>
                <label htmlFor="max">Max</label>
                <input
@@ -60,7 +62,7 @@ const PriceFilter = () => {
                 setMaxPrice(e.target.value);
                 setSelectedRange('');
               }}
-              className="w-ful border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className=" ml-1 border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
             /></div>
           </div>
           {priceRanges.map((range) => (
@@ -92,3 +94,5 @@ const PriceFilter = () => {
 };
 
 export default PriceFilter;
+
+

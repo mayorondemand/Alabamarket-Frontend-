@@ -6,6 +6,7 @@ import Navbar from "./components/Buyers/Navbar"
 import Input from "./components/Buyers/Inputs"
 import Aside from "./components/Buyers/Aside"
 import PriceFilter from "./components/Buyers/PriceFilter"
+import SellerFilter from "./components/Buyers/SellersFilters"
 export default function Home() {
   return (
     <main className="min-h-screen bg-white grid grid-cols gap-6">
@@ -16,6 +17,7 @@ export default function Home() {
       <Input />
       <Aside />
       <PriceFilter />
+      <SellerFilter />
 <Products />
 
 </section>
