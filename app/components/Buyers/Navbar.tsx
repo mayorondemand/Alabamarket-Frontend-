@@ -41,7 +41,7 @@ const IconLink = ({
   </Link>
 );
   return (
-    <nav className="bg-primary py-6 container">
+   <> <nav className="bg-primary py-6 container fixed left-0 right-0 top-0 z-50 backdrop-blur">
       <div className="flex items-center justify-between gap-4 flex-wrap">
         
         <div className="flex items-center gap-4">
@@ -59,7 +59,7 @@ const IconLink = ({
         <form  onSubmit={(e) => {
     e.preventDefault();
     search();
-  }} className="flex flex-1 max-w-2xl items-center bg-white rounded-md px-3 py-1 mx-auto">
+  }} className="flex flex-1 max-w-2xl items-center bg-white rounded-md px-3 py-2 mx-auto">
           <input
             type="search"
             
@@ -68,60 +68,13 @@ const IconLink = ({
             placeholder="I’m looking for…."
             className="flex-1 outline-none text-sm text-gray-800 placeholder:text-gray-400"
           />
-          <ScanSearch size={20} className="text-primary mr-2 cursor-pointer" />
-          <button type='submit' className="bg-primary text-white rounded-full p-2" onClick={search}>
-            <Search size={20} />
+          <ScanSearch size={21} className="text-primary mr-2 cursor-pointer" />
+          <button type='submit' className="bg-primary text-white rounded-full p-1" onClick={search}>
+            <Search size={18} />
           </button>
         </form>
 
-        {/* {user?<div className="flex items-center gap-4 text-white text-sm">
-          <Link href="/saved" className="flex items-center gap-1 hover:underline">
-            <Heart size={18}  className='text-white fill-white'/>
-            <span>Saved items</span>
-          </Link>
-          <Link href="/auth" className="flex items-center gap-1 hover:underline">
-            <User size={18} className='text-white fill-white' />
-            <span>Sign in</span>
-          </Link>
-          <Link
-            href="/sell"
-            className="bg-white text-primary font-medium px-4 py-2 rounded-md hover:opacity-90"
-          >
-            Sell now
-          </Link>
-        </div>:
-        <div className="flex items-center gap-4 text-white text-sm">
-             <Link href="/saved" className="flex items-center gap-1 hover:underline">
-            <span className='p-1 bg-white rounded-full flex flex-col items-center justify-center'>
-                <Bell size={18} className='fill-primary text-primary' />
-            </span>
-          
-          </Link>
-          <Link href="/auth" className="flex items-center gap-1 hover:underline">
-           <span className='p-1 bg-white rounded-full flex flex-col items-center justify-center'>
-                          <MessageSquare size={18} className='fill-primary text-primary' />
-
-            </span>
-          </Link>
-          <Link href="/saved" className="flex items-center gap-1 hover:underline">
-            <span className='p-1 bg-white rounded-full flex flex-col items-center justify-center'>
-                <Heart size={18} className='fill-primary text-primary' />
-            </span>
-          
-          </Link>
-          <Link href="/auth" className="flex items-center gap-1 hover:underline">
-           <span className='p-1 bg-white rounded-full flex flex-col items-center justify-center'>
-                          <User size={18} className='fill-primary text-primary' />
-
-            </span>
-          </Link>
-          <Link
-            href="/sell"
-            className="bg-white text-primary font-medium px-4 py-2 rounded-md hover:opacity-90"
-          >
-            Sell now
-          </Link>
-        </div>} */}
+        
 <div className="flex items-center gap-6 text-sm">
   <IconLink
     href="/saved"
@@ -163,7 +116,7 @@ const IconLink = ({
 </div>
 
       </div>
-    </nav>
+    </nav></>
   );
 };
 

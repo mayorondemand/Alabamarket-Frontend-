@@ -19,7 +19,9 @@ module.exports = {
 		name:"#3E4561",
 		neatBg:" #E4E5E9",
 		active:"#D7DBEC",
-    neatlyUsed:"#C0C9F8"
+    neatlyUsed:"#C0C9F8",
+    saveBorder: "#8EAC90",
+
     
 
       },

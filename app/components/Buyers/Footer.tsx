@@ -106,9 +106,10 @@ const Footer = () => {
       </div> */}
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
   {/* First column (logo/info) - full width on mobile */}
-  <div className="sm:col-span-2 lg:col-span-1">
+  <div className="sm:col-span-2  lg:col-span-1">
     <div className="rounded-md inline-flex mb-4">
-      <Image src="./ALABA LOGO.PNG" alt="alaba-market-logo" className="w-full" width={200} height={200} />
+                        <Image src="/ALABA LOGO.PNG" alt="alaba-market-logo" className="" width={140} height={140} />
+      
     </div>
     <p className="text-sm leading-relaxed">
       See what’s newly posted by verified sellers
@@ -132,7 +133,7 @@ const Footer = () => {
     </div>
   </div>
 
-  <div className="sm:col-span-2 grid-cols-2 md:grid-cols-3 lg:col-span-4 grid lg:grid-cols-4 gap-6 lg:ml-5">
+  <div className="sm:col-span-2 grid-cols-2 md:grid-cols-3 lg:col-span-4 grid lg:grid-cols-4 gap-6 lg:ml-20 lg:pl-14">
     {footerSections.map((section, idx) => (
       <div key={idx}>
         <h3 className="font-bold text-white mb-3 text-lg">{section.title}</h3>

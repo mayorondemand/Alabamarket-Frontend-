@@ -89,11 +89,11 @@ h2 {
 }
 
 h3 {
-  @apply text-lg md:text-xl lg:text-2xl font-medium;
+  @apply text-[27px] md:text-xl lg:text-2xl font-medium;
 }
 
 h4 {
-  @apply text-base md:text-lg lg:text-xl font-medium;
+  @apply text-[25px] text-base md:text-lg lg:text-xl font-medium;
 }
 
 p {
