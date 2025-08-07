@@ -113,21 +113,26 @@ const Products = () => {
      
       </div>
 
-      <div className={`grid gap-5  ${linear?`md:grid-cols-2 lg:grid-cols-5 `:`md:grid-cols-1 lg:grid-cols-1`}`}>
+      <div className={`grid gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-5  `:`md:grid-cols-1 lg:grid-cols-1`}`}>
      {Products.map((item,index)=>{
       return <div key={index} className={`border cursor-pointer border-description rounded-md ${linear?``:`flex gap-1 md:items-center  md:grid-cols-5]`} lg:shrink-0 `}>
 
-        <div className="relative w-full md:col-span-1 ">
- <Image
+        {/* <div className="relative w-full md:col-span-1 "> */}
+ <div className={`relative w-full  md:col-span-1 ${linear?``:`h-full`}`}>
+
+
+<Image
   src={item.img}
   alt={item.name}
   width={200}
   height={200}
-  className={`  object-cover w-full rounded-md
-    ${linear ? 'h-full' : 'lg:max-h-[280px]'} 
-    
-  `}
+  className={`object-cover w-full h-full ${
+    linear
+      ? 'rounded-tl-md rounded-tr-md'
+      : 'rounded-md md:rounded-md md:rounded-tr-none md:rounded-br-none lg:max-h-[280px]'
+  }`}
 />
+
 
         <div className="absolute top-2  w-full flex  justify-between px-4 md:px-6" >   <button
   className=" bg-white h-fit hover:bg-white rounded p-1 order-2 md:order-1"
@@ -153,7 +158,7 @@ const Products = () => {
 
           </div>
 
-         <div className="md:col-span-4 w-full"> <div className={`flex p-4  gap-3   md:${linear?'flex-row items-center justify-between':' flex-col md:flex-row md:items-center md:justify-between'}`}> 
+         <div className="md:col-span-4 w-full "> <div className={`flex p-4 flex-col  gap-3   md:${linear?'flex-row md:items-center md:justify-between':' flex-col md:flex-row md:items-center md:justify-between'}`}> 
       <h3 className="text-primary font-bold sm:text-s">  { "₦"+item.price.toLocaleString()} </h3>
 
 
