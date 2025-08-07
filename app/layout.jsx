@@ -18,16 +18,7 @@ openGraph: {
   
     type: "website",
   },
-  // other: {
-  //   'google-site-verification': '',
-  // }, 
   
-  //  twitter: {
-  //   card: "summary_large_image",
-  //   title: "Quwam Adeniran",
-  //   description: "Frontend Developer portfolio",
-  //   images: ["https://quwamportfolio.netlify.app/quwam.jpeg"],
-  // },
   icons: {
     icon: "/favicon.png",
   },

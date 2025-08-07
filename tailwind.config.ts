@@ -18,11 +18,14 @@ module.exports = {
 		description:"#8B92AA",
 		name:"#3E4561",
 		neatBg:" #E4E5E9",
-		active:"#D7DBEC"
+		active:"#D7DBEC",
+    neatlyUsed:"#C0C9F8"
+    
 
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif",'var(--font-poppins)',],
+                poppins: ['var(--font-poppins)', 'sans-serif'],
+
       },
     },
   },

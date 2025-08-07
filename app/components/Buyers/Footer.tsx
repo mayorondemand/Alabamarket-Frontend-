@@ -39,7 +39,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white container py-8">
+    <footer className="bg-primary text-white container py-14">
       {/* <div className="grid grid-cols-5  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div className='col-span-1'>
           <div className=" rounded-md inline-flex  mb-4">
