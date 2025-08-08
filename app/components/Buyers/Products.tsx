@@ -85,12 +85,12 @@ const Products = () => {
 
   return (
     <section>
-      <div className=" flex justify-end gap-4 items-center">
+      <div className=" flex justify-end gap-4 items-center mb-5">
          
 
          <div  onClick={(()=>{
     setLinear(false)
-   })} className="bg-white p-3 cursor-pointer grid  gap-1 rounded-full  ">
+   })} className="bg-collpse p-3 h-fit cursor-pointer grid  gap-1 rounded-full  ">
 
     {
       Array(2).fill(null).map((_, i) => (
@@ -100,11 +100,11 @@ const Products = () => {
     }</div>
          <div onClick={(()=>{
     setLinear(true)
-   })} className="bg-white p-3 grid grid-cols-3  gap-1 rounded-full cursor-pointer">
+   })} className="bg-collpse h-fit  p-3 grid grid-cols-3  gap-1 rounded-full cursor-pointer">
 
     {
       Array(9).fill(null).map((_, i) => (
-   <div key={i}  className={`h-2 w-2 ${linear?`bg-primary`:`bg-description`}`}></div>
+   <div key={i}  className={`h-1 w-1 ${linear?`bg-primary`:`bg-description`}`}></div>
 ))
 
     }</div>
@@ -112,6 +112,7 @@ const Products = () => {
 
      
       </div>
+
 
       <div className={`grid gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-5  `:`md:grid-cols-1 lg:grid-cols-1`}`}>
      {Products.map((item,index)=>{
@@ -134,7 +135,7 @@ const Products = () => {
 />
 
 
-        <div className="absolute top-2  w-full flex  justify-between px-4 md:px-4" >  
+        <div className="absolute top-2  w-full flex gap-2  justify-between px-4 md:px-4 md:gap-0" >  
       {item.fixed&&<div className="z-30 flex gap-1 flex-col ">
 {item.verifiedSeller&&
 <button className="text-sm   flex items-center gap-2 text-description bg-white hover:bg-white rounded p-2 w-fit"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 12" fill="none">
@@ -172,15 +173,15 @@ const Products = () => {
           <div > 
 
 {/* <h4 className="mb-0 text-name font-semibold"> */}
-<h4 className="text-[21px] font-semibold leading-[110%] text-name">
+<h4 className="text-[21px] font-semibold leading-[110%] text-name mb-1">
 
-  {item.name.length > 13 ? `${item.name.substring(0, 13)}...` : item.name}
+  {item.name.length > 13 ? `${!linear?`${item.name}`:`${item.name.substring(0, 13)}...`}` : item.name}
 </h4>
-     <span className="text-sm text-description mt-2"> {item.description}  </span>
+     <span className="text-sm text-description"> {item.description}  </span>
 
 
           </div>
-         <div className="flex items-center justify-between"> 
+         <div className={`flex items-center justify-between ${!linear ?`md:mt-20`:``}`}> 
 <button className="border-none px-2 py-2 rounded-md text-primary bg-neatBg"> Neatly used  </button>
 
       {item.fixed&&<span className="p-2 rounded-md bg-neatlyUsed"> <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14" fill="none">

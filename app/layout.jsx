@@ -26,7 +26,7 @@ openGraph: {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth pt-[300px] md:pt-[120px]">
       <body className={poppins.variable}>{children}</body>
     </html>
   )

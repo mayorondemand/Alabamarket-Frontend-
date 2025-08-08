@@ -21,6 +21,7 @@ module.exports = {
 		active:"#D7DBEC",
     neatlyUsed:"#C0C9F8",
     saveBorder: "#8EAC90",
+    collpse:"#EFEEEE"
 
     
 
