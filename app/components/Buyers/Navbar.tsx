@@ -40,12 +40,12 @@ const IconLink = ({
     </span>
   </Link>
 );
-const [showPopUp,setShowPopUp]=useState(true)
+const [showPopUp,setShowPopUp]=useState(false)
   return (
    <> 
    {/* desktop navbar */}
-   <nav className="bg-primary py-6 container fixed left-0 right-0 top-0 z-50 backdrop-blur hidden md:block">
-      <div className="flex items-center justify-between gap-4 flex-wrap">
+   <nav className="fixed bg-primary py-6   left-0 right-0 top-0 z-50 backdrop-blur hidden md:block">
+      <div className="flex container items-center justify-between gap-4 flex-wrap">
         
         <div className="flex items-center gap-4">
           <Link href="/" className="bg-yellow-400 rounded-md px-2 py-1 flex items-center gap-2">
@@ -122,8 +122,8 @@ const [showPopUp,setShowPopUp]=useState(true)
     </nav>
     
 {/* mobile navbar */}
-     <nav className="bg-white py-[14px] container fixed left-0 right-0 top-0 z-50 backdrop-blur shadow-md  md:hidden">
-      <div className="flex items-center justify-between gap-4 flex-wrap">
+     <nav className="bg-white py-[14px]  fixed left-0 right-0 top-0 z-50 backdrop-blur shadow-md  md:hidden">
+      <div className="flex container items-center justify-between gap-4 flex-wrap">
         
         <div className="flex items-center gap-4">
           <Link href="/" className="bg-yellow-400 rounded-md px-2 py-1 flex items-center gap-2">
@@ -185,7 +185,6 @@ const [showPopUp,setShowPopUp]=useState(true)
  transform ${
     showPopUp ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-y-full opacity-0 pointer-events-none'
   }`}>
-  {/* Popup */}
   <div className="bg-white p-6 rounded-tr-[24px] rounded-tl-[24px] shadow-lg  w-full">
    
 
