@@ -44,8 +44,8 @@ const [showPopUp,setShowPopUp]=useState(false)
   return (
    <> 
    {/* desktop navbar */}
-   <nav className="fixed bg-primary py-6   left-0 right-0 top-0 z-50 backdrop-blur hidden md:block">
-      <div className="flex container items-center justify-between gap-4 flex-wrap">
+   <nav className="fixed bg-primary py-6   left-0 right-0 top-0 z-50 backdrop-blur hidden lg:block">
+      <div className="flex  items-center justify-between gap-4 px-10 xl:container">
         
         <div className="flex items-center gap-4">
           <Link href="/" className="bg-yellow-400 rounded-md px-2 py-1 flex items-center gap-2">
@@ -122,7 +122,7 @@ const [showPopUp,setShowPopUp]=useState(false)
     </nav>
     
 {/* mobile navbar */}
-     <nav className="bg-white py-[14px]  fixed left-0 right-0 top-0 z-50 backdrop-blur shadow-md  md:hidden">
+     <nav className="bg-white py-[14px]  fixed left-0 right-0 top-0 z-50 backdrop-blur shadow-md  lg:hidden">
       <div className="flex container items-center justify-between gap-4 flex-wrap">
         
         <div className="flex items-center gap-4">
@@ -181,7 +181,7 @@ const [showPopUp,setShowPopUp]=useState(false)
     </nav>
 
     
-<div className={`fixed font-Poppins inset-0 bg-[rgba(57,64,58,0.35)] backdrop-blur-[3.5px] flex items-end justify-center z-50    z-50 transition-all duration-300 ease-in-out
+<div className={`fixed font-Poppins inset-0 bg-[rgba(57,64,58,0.35)] backdrop-blur-[3.5px] flex items-end justify-center z-50    z-50 transition-all duration-300 ease-in-out lg:hidden
  transform ${
     showPopUp ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-y-full opacity-0 pointer-events-none'
   }`}>

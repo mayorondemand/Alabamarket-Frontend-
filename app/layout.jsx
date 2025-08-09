@@ -1,6 +1,6 @@
 import "./globals.css"
 import { Poppins } from 'next/font/google';
-
+import NavbarWrapper from "./components/Buyers/NavbarWrapper";
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'], 
@@ -26,8 +26,10 @@ openGraph: {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth pt-[300px] md:pt-[120px]">
+    <html lang="en" className="scroll-smooth">
+          <NavbarWrapper>
       <body className={poppins.variable}>{children}</body>
+      </NavbarWrapper>
     </html>
   )
 }
