@@ -12,6 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import YouMightAlsoLike from './YouMightAlsoLike';
 import { useState, useCallback } from 'react';
+import MobileDescription from './MobileDescription';
 import { ArrowLeft, CheckCircle, MessageCircle,MessageSquareText, Phone, AlertCircle } from 'lucide-react';
 type Product = {
   name: string;
@@ -60,9 +61,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-5 gap-10">
+      <div className="grid  gap-10 md:grid-cols-5">
         {/* Left: Product Images */}
-        <div className="col-span-3 flex flex-col gap-3">
+        <div className="hidden  md:flex flex-col gap-3 md:col-span-3">
           <div onClick={handleMainImgClick} className="cursor-pointer">
             <Image
               src={activeImg}
@@ -93,11 +94,14 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             ))}
           </div>
         </div>
+<div className='md:hidden'>
+          <MobileDescription product={product} />
 
+</div>
         {/* Right: Product Info */}
-        <div className="col-span-2 flex flex-col gap-6">
+        <div className=" flex flex-col gap-6 md:col-span-2">
           {/* Price & Action */}
-          <div className="flex flex-col gap-[30px] p-6 rounded-xl bg-categoryBg h-fit">
+          <div className="hidden md:flex flex-col gap-[30px] p-6 rounded-xl bg-categoryBg h-fit">
             <div className="flex w-fit flex-col gap-[6px]">
               <h4 className="text-primary text-[33px] font-[700]">₦{product.price.toLocaleString()}</h4>
               {product.fixed ? null : (
