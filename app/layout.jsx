@@ -24,12 +24,23 @@ openGraph: {
   },
 }
 
+import Footer from "./components/Buyers/Footer"
+import Navbar from "./components/Buyers/Navbar"
+
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth ">
+      <body className={`${poppins.variable}`} >
+       <Navbar />
           <NavbarWrapper>
-      <body className={poppins.variable}>{children}</body>
+            <div className=" mt-20 py-6 flex flex-col ">
+{children}
+            </div>
+      
       </NavbarWrapper>
+      <Footer />
+      </body>
     </html>
   )
 }

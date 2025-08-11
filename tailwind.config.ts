@@ -22,7 +22,9 @@ module.exports = {
     neatlyUsed:"#C0C9F8",
     saveBorder: "#8EAC90",
     collpse:"#EFEEEE",
-    inputBorder:"#B2B6C7"
+    inputBorder:"#B2B6C7", categoryBg:"#F7F7F8",
+    red:"#E30808",
+    prevPage:"#818EBC"
 
     
 

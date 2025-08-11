@@ -2,8 +2,8 @@
 'use client'
 import { useState } from "react";
 import Image from "next/image";
-
-const RecommendedProducts = () => {
+import Link from "next/link";
+const YouMightAlsoLike = () => {
 
   const [linear,setLinear]=useState(true)
 
@@ -85,7 +85,7 @@ const RecommendedProducts = () => {
   return (
     <section>
       <div className="flex justify-start gap-4 items-center mb-5">
-         <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">Recommended for you</h6>
+         <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">You might also like </h6>
 
      
         
@@ -94,9 +94,14 @@ const RecommendedProducts = () => {
       </div>
 
 
-      <div className={`grid gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-5   `:`md:grid-cols-1 lg:grid-cols-1`}`}>
+      <div className={`grid gap-5 grid-cols-2 lg:grid-cols-2 xl:grid-cols-5 `}>
      {Products.map((item,index)=>{
-      return <div key={index} className={`border cursor-pointer border-description rounded-[12px] ${linear?``:`flex gap-1 md:items-center  md:grid-cols-5]`} lg:shrink-0 `}>
+      return <Link
+               key={index}
+                 href={`/categories/${encodeURIComponent(item.name)}/${`${item.name}`}`} 
+
+              > 
+      <div  className={`border cursor-pointer border-description rounded-[12px] ${linear?``:`flex gap-1 md:items-center  md:grid-cols-5]`} lg:shrink-0 `}>
 
         {/* <div className="relative w-full md:col-span-1 "> */}
  <div className={`relative w-full  md:col-span-1 ${linear?``:`h-full`}`}>
@@ -200,6 +205,9 @@ const RecommendedProducts = () => {
           </div> </div>
         
          </div>
+           </Link>
+              
+               
      })}
     </div>
     </section>
@@ -207,4 +215,4 @@ const RecommendedProducts = () => {
 };
 
 
-export default RecommendedProducts
+export default YouMightAlsoLike

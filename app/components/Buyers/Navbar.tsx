@@ -181,14 +181,15 @@ const [showPopUp,setShowPopUp]=useState(false)
     </nav>
 
     
-<div className={`fixed font-Poppins inset-0 bg-[rgba(57,64,58,0.35)] backdrop-blur-[3.5px] flex items-end justify-center z-50    z-50 transition-all duration-300 ease-in-out lg:hidden
- transform ${
+<div className={`fixed font-Poppins inset-0 bg-[rgba(57,64,58,0.35)] backdrop-blur-[3.5px] flex items-end justify-center z-50    z-50 transition-all duration-300 ease-in-out 
+
+ transform lg:hidden ${
     showPopUp ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-y-full opacity-0 pointer-events-none'
   }`}>
-  <div className="bg-white p-6 rounded-tr-[24px] rounded-tl-[24px] shadow-lg  w-full">
+  <div className="bg-white p-6 rounded-tr-[24px] rounded-tl-[24px] shadow-lg  w-full gap-20 flex flex-col">
    
 
-    <div className='flex flex-col gap-[60px]'>
+    <div className='flex flex-col gap-[50px]'>
       <div className='flex items-top justify-between'>
       <div className='flex items-top gap-[15px]'>  <Image alt='username' className='h-[64px] w-[64px] aspect-square' src={'/eze.png'} height={100} width={100}/>  <div className='flex flex-col gap-[6px]'> <h4 className='class="text-primary font-Poppins text-[21px] font-semibold leading-[150%]"'>Soporuchi Eze</h4> <p className="text-primary font-Poppins text-[14px] font-normal leading-[20px]"
 >soporuchi45@gmail.com</p> <Link href={`/user`} className='text-[#172556] mt-[7px] font-Poppins text-[14px] font-semibold leading-[150%] underline
@@ -213,8 +214,58 @@ const [showPopUp,setShowPopUp]=useState(false)
     >
       Sell now
     </button>
+
+    <div className="flex flex-col items-start justify-start gap-[20px] text-sm">
+
+  
+<Link href={`/saved`} className='flex gap-2 items-center' > 
+<div className='bg-[#EFEEEE] p-2 rounded-full'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 29 28" fill="none">
+  <path d="M8.82487 4.66602C5.28112 4.66602 2.4082 7.53893 2.4082 11.0827C2.4082 17.4993 9.99154 23.3327 14.0749 24.6895C18.1582 23.3327 25.7415 17.4993 25.7415 11.0827C25.7415 7.53893 22.8686 4.66602 19.3249 4.66602C17.1549 4.66602 15.2357 5.74343 14.0749 7.39252C13.4831 6.54983 12.697 5.86209 11.7832 5.3875C10.8693 4.91291 9.8546 4.66543 8.82487 4.66602Z" fill="#172556" stroke="#172556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+    
+                     <span className='text-[14px] font-400 text-primary'>Saved Items</span>
+
+     </Link>
+  
+    <Link href={`/notifications`} className='flex gap-2 items-center' > 
+    <div className='bg-[#EFEEEE] p-2 rounded-full'>
+   
+       <Bell size={20} className="fill-primary"  />
+       </div>
+                     <span className='text-[14px] font-400 text-primary'>Notifications</span>
+
+     </Link>
+<Link href={`/messages`} className='flex gap-2 items-center' > 
+    <div className='bg-[#EFEEEE] p-2 rounded-full'>
+   
+     <MessageSquare size={20} className="fill-primary" />
+       </div>
+                     <span className='text-[14px] font-400 text-primary'>Chat inbox </span>
+
+     </Link>
+  
+
+ 
+      
+    
+
+  
+</div>
     </div>
-  </div>
+
+
+   
+    
+
+<Link href={`/saved`} className='flex gap-2 items-center' > 
+<div className='bg-[#EFEEEE] p-2 rounded-full'> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C5.20435 2 4.44129 2.31607 3.87868 2.87868C3.31607 3.44129 3 4.20435 3 5V19C3 19.7956 3.31607 20.5587 3.87868 21.1213C4.44129 21.6839 5.20435 22 6 22H12C12.7956 22 13.5587 21.6839 14.1213 21.1213C14.6839 20.5587 15 19.7956 15 19V5C15 4.20435 14.6839 3.44129 14.1213 2.87868C13.5587 2.31607 12.7956 2 12 2H6ZM16.293 7.293C16.4805 7.10553 16.7348 7.00021 17 7.00021C17.2652 7.00021 17.5195 7.10553 17.707 7.293L21.707 11.293C21.8945 11.4805 21.9998 11.7348 21.9998 12C21.9998 12.2652 21.8945 12.5195 21.707 12.707L17.707 16.707C17.5184 16.8892 17.2658 16.99 17.0036 16.9877C16.7414 16.9854 16.4906 16.8802 16.3052 16.6948C16.1198 16.5094 16.0146 16.2586 16.0123 15.9964C16.01 15.7342 16.1108 15.4816 16.293 15.293L18.586 13H10C9.73478 13 9.48043 12.8946 9.29289 12.7071C9.10536 12.5196 9 12.2652 9 12C9 11.7348 9.10536 11.4804 9.29289 11.2929C9.48043 11.1054 9.73478 11 10 11H18.586L16.293 8.707C16.1055 8.51947 16.0002 8.26516 16.0002 8C16.0002 7.73484 16.1055 7.48053 16.293 7.293Z" fill="#E30808"/>
+</svg></div>
+    
+                     <span className='text-[14px] font-400 text-red'>Logout</span>
+
+     </Link>
+    </div>
 </div>
 
     </>
