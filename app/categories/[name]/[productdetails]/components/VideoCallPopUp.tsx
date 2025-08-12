@@ -6,7 +6,7 @@ interface VideoCallPopUpProps {
 }
 
 const VideoCallPopUp = ({showPopUp, setShowPopUp}: VideoCallPopUpProps) => {
-const user=true
+const user=false
 
   return (
   <>
@@ -16,7 +16,7 @@ const user=true
     `}
     >
       <div
-        className="bg-white relative py-8 px-10 rounded-tr-[16px] rounded-tl-[16px] md:rounded-[16px] shadow-lg w-full md:w-[560px] flex flex-col items-center text-center gap-6"
+        className="bg-white relative py-8 px-10 max-w-3xl rounded-tr-[16px] rounded-tl-[16px] md:rounded-[16px] shadow-lg w-fit  flex flex-col items-center text-center gap-6"
       >
         {/* Close Button */}
            <div className="flex items-center absolute top-8 right-10 justify-end ">
@@ -78,7 +78,7 @@ const user=true
     `}
     >
       <div
-        className="bg-white relative py-8 px-10 rounded-tr-[16px] rounded-tl-[16px] md:rounded-[16px] shadow-lg w-full md:w-[560px] flex flex-col items-center text-center gap-6"
+        className="bg-white relative py-8 px-10 rounded-tr-[16px] rounded-tl-[16px] md:rounded-[16px] shadow-lg max-w-3xl  w-fit md:flex flex-col items-center text-center gap-6"
       >
         {/* Close Button */}
            <div className="flex items-center absolute top-8 right-10 justify-end ">
