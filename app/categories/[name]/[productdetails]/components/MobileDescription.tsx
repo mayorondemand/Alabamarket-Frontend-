@@ -16,9 +16,11 @@ type Product = {
 
 interface MobileDescriptionProps {
   product: Product;
+  showPopUp: boolean;
+  setShowPopUp: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileDescription = ({ product }: MobileDescriptionProps) => {
+const MobileDescription = ({ product, setShowPopUp }: MobileDescriptionProps) => {
 //   const images = product.images?.length ? product.images : [product.image];
   const images = [
   product?.images?.[0] || product.image,
@@ -75,7 +77,9 @@ const MobileDescription = ({ product }: MobileDescriptionProps) => {
                   <button className="text-primary p-[8px] rounded bg-neatBg">Negotiable</button>
                 )}
               </div>
-              <button className="py-[12px] text-[17px] rounded-[8px] font-500 w-full bg-primary text-white">
+              <button onClick={(()=>{
+                setShowPopUp(true)
+              })} className="py-[12px] text-[17px] rounded-[8px] font-500 w-full bg-primary text-white">
                 Request video call
               </button>
             </div>

@@ -24,7 +24,9 @@ module.exports = {
     collpse:"#EFEEEE",
     inputBorder:"#B2B6C7", categoryBg:"#F7F7F8",
     red:"#E30808",
-    prevPage:"#818EBC"
+    prevPage:"#818EBC",
+    productDetailsDescription:"#656E8B",
+    promotedBg:"#F6F6F7"
 
     
 

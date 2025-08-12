@@ -83,7 +83,7 @@ const YouMightAlsoLike = () => {
 
 
   return (
-    <section>
+    <section className="mb-8">
       <div className="flex justify-start gap-4 items-center mb-5">
          <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">You might also like </h6>
 
