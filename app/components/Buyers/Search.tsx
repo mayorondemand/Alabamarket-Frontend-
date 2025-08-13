@@ -55,7 +55,7 @@ function SearchPageInner() {
 
   const search = () => {
     if (searchValue.trim() !== '') {
-      router.push(`/searchresult?search=${searchValue}`)
+      router.push(`/search?search=${searchValue}`)
     }
   }
 

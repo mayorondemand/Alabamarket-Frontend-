@@ -69,7 +69,7 @@ const [showReport,setShowReport]=useState(false)
       </div>
 
       {/* <div className="grid  gap-10 md:grid-cols-5"> */}
-            <div className="flex gap-6 flex-col md:flex-row mb-8">
+            <div className="flex gap-6 flex-col md:flex-row mb-8 ">
 
 
         {/* Left: Product Images */}
@@ -120,12 +120,14 @@ const [showReport,setShowReport]=useState(false)
 </div>
 
         {/* Right: Product Info */}
-        <div className=" flex flex-col gap-10 md:flex-[2] lg:flex-[1] lg:gap-6">
+       <div className='sticky top-20 '>
+ <div className=" flex  flex-col gap-10 sticky top-20   md:flex-[2] lg:flex-[1] lg:gap-6 ">
           {/* Price & Action */}
           <div className="hidden md:flex flex-col gap-[30px] p-4 rounded-xl bg-categoryBg h-fit">
             <div className="flex w-fit flex-col gap-[6px]">
               <h4 className="text-primary text-[33px] font-[700]">₦{product.price.toLocaleString()}</h4>
-              {product.fixed ? null : (
+              {product.fixed ?                 <button className="text-primary py-[7px] px-[7px] w-fit rounded  bg-neatBg">Fixed</button>
+ : (
                 <button className="text-primary py-[7px] px-[7px] w-fit rounded  bg-neatBg">Negotiable</button>
               )}
             </div>
@@ -196,6 +198,7 @@ const [showReport,setShowReport]=useState(false)
             </button>
           </div>
         </div>
+       </div>
       </div>
 
       {/* Product Name */}

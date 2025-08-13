@@ -108,7 +108,7 @@ const Footer = () => {
   {/* First column (logo/info) - full width on mobile */}
   <div className="sm:col-span-2  lg:col-span-1">
     <div className="rounded-md inline-flex mb-4">
-                        <Image src="/ALABA LOGO.PNG" alt="alaba-market-logo" className="" width={140} height={140} />
+                        <Image src="/ALABALOGO.png" alt="alaba-market-logo" className="" width={140} height={140} />
       
     </div>
     <p className="text-sm leading-relaxed">
@@ -117,7 +117,7 @@ const Footer = () => {
 
     <div className="flex gap-3 mt-4">
       <Image
-        src="/Google play.png"
+        src="/googleplay.png"
         alt="Google Play"
         width={120}
         height={40}

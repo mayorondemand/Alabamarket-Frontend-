@@ -92,9 +92,9 @@ export default function Categories() {
         <SearchPage />
 
       {categories.map((cat, index) => (
-        <section key={index} className={`bg-categoryBg py-[32px] px-[12px] rounded-lg ${index==0?`mt-5`:``}`}>
+        <section key={index} className={`  ${index==0?`mt-5`:`mt-5`}`}>
           {/* Header Row */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-4">
             <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">{cat.name}</h6>
             <Link
               href={`/categories/${encodeURIComponent(cat.name)}`}
@@ -105,13 +105,15 @@ export default function Categories() {
           </div>
 
           {/* Items Grid */}
-          <div className="grid grid-cols-4 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7">
+          <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7">
             {cat.products.map((product: { title: string; image: string }, pIdx: number) => (
               <Link
                 key={pIdx}
                 href={`/search?name=${encodeURIComponent(product.title)}`}
-                className="flex flex-col items-center text-center"
+                className="                      rounded-lg     flex flex-col  rounded-lg items-center  p-2 text-center text-center bg-categoryBg md:mb-0 md:p-4
+ "
               >
+
                 <div className="rounded-full overflow-hidden">
                   <Image
                     src={`/categories.png`}

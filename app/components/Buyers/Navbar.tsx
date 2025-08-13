@@ -12,7 +12,7 @@ const [searchValue,setSearchValue]=useState('')
 const router=useRouter()
     const search=()=>{
 if(searchValue.trim()!=='')
-router.push(`/searchresult?search=${searchValue}`)
+router.push(`/search?search=${searchValue}`)
     }
 
 const changeSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +49,7 @@ const [showPopUp,setShowPopUp]=useState(false)
         
         <div className="flex items-center gap-4">
           <Link href="/" className="bg-yellow-400 rounded-md px-2 py-1 flex items-center gap-2">
-                  <Image src="/ALABA LOGO.PNG" alt="alaba-market-logo" className="" width={120} height={120} />
+                  <Image src="/ALABALOGO.png" alt="alaba-market-logo" className="" width={120} height={120} />
             
           </Link>
 
@@ -127,7 +127,7 @@ const [showPopUp,setShowPopUp]=useState(false)
         
         <div className="flex items-center gap-4">
           <Link href="/" className="bg-yellow-400 rounded-md px-2 py-1 flex items-center gap-2">
-                  <Image src="/ALABA LOGO.PNG" alt="alaba-market-logo" className="" width={120} height={120} />
+                  <Image src="/ALABALOGO.png" alt="alaba-market-logo" className="" width={120} height={120} />
             
           </Link>
 

@@ -49,13 +49,13 @@ export default function Categories() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <div className='bg-categoryBg py-[48px] px-[12px] rounded-lg'>
-      <div className="grid grid-cols-3 gap-1  sm:grid-cols-3 md:gap-5 md:grid-cols-5  lg:grid-cols-9 ">
+    <div>
+      <div className="grid grid-cols-3 gap-4  sm:grid-cols-3 md:gap-5 md:grid-cols-5  lg:grid-cols-9 ">
         {visibleCategories.map((cat, index) => (
           <Link
             key={index}
             href={`/search?name=${encodeURIComponent(cat.name)}`}
-            className="flex flex-col items-center text-center mb-4 text-center md:mb-0"
+            className="flex flex-col  rounded-lg items-center  p-2 text-center text-center bg-categoryBg md:mb-0 md:p-4"
           >
             <div className="rounded-full overflow-hidden">
               <Image

@@ -9,7 +9,7 @@ return <div className="flex flex-col gap-1 items-center text-center justify-cent
 Find trusted electronics from Alaba sellers
     </h1>
 
-   <p className="text-description text-[17px] md:text-[21px] mb-4 lg:mb-0 lg:mt-2">Built with the Alaba traders in mind. The market is now online.</p>
+   <p className="text-description text-[17px] md:text-[21px] mb-4 lg:mb-0 lg:mt-4">Built with the Alaba traders in mind. The market is now online.</p>
 
   <SearchPage />
 </div>
