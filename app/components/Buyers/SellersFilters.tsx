@@ -9,7 +9,11 @@ const AllSellerTypes = [
   { label: 'Unverified sellers', value: 'Unverified sellers' },
 ];
 
-const SellerFilter = () => {
+interface SellerFilterProps {
+  price: string; // Change 'number' to the correct type if needed
+}
+
+const SellerFilter = ({ price }: SellerFilterProps) => {
   const [isOpen, setIsOpen] = useState(true);
   const [selectedRange, setSelectedRange] = useState('');
   const [sellerType, setSellerType] = useState('');
@@ -21,8 +25,9 @@ const SellerFilter = () => {
       <div
         className="flex items-center justify-between gap-20 cursor-pointer mb-2"
         onClick={toggleCollapse}
-      >
-        <h3 className="font-semibold text-gray-800 flex items-center gap-1">
+      >         <h3 className="font-semibold text-primary text-[21px] font-[600] flex items-center gap-1">
+
+       
           Sellers
         </h3>
         {isOpen ? (
@@ -38,7 +43,7 @@ const SellerFilter = () => {
           {AllSellerTypes.map((range) => (
             <label
               key={range.value}
-              className="flex items-center gap-2 text-sm cursor-pointer"
+              className="flex items-center gap-2 text-sm cursor-pointer text-primary text-[17px] font-[400px]"
             >
               <input
                 type="radio"

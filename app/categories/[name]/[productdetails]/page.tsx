@@ -112,9 +112,12 @@ console.log(filteredProduct)
 //       </div>
   return (
     <div>
-      <HotelSchema product={filteredProduct}  />
-      <ProductDetails product={filteredProduct} />
-     
+      {filteredProduct && <HotelSchema product={filteredProduct} />}
+      {filteredProduct ? (
+        <ProductDetails product={filteredProduct} />
+      ) : (
+        <div className='flex items-center justify-center fpnt-bold'>Product not found.</div>
+      )}
     </div>
   );
 };

@@ -2,7 +2,6 @@
 'use client'
 import { useState } from "react";
 import Image from "next/image";
-import { Heart } from "lucide-react";
 import Link from "next/link";
 const Products = () => {
 
@@ -21,7 +20,7 @@ const Products = () => {
 
     
   }
-  const [Products,setProducts]=useState<product []> ([
+  const [Products]=useState<product []> ([
     {
     name: "Samsung Galaxy S21",
     price: 180000,
@@ -86,7 +85,7 @@ const Products = () => {
   return (
     <section>
       <div className="flex justify-between gap-4 items-center mb-5">
-         <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">Popular buy</h6>
+         <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">Popular by search</h6>
 
        <div className="flex items-center gap-4">  <div  onClick={(()=>{
     setLinear(false)
@@ -108,7 +107,8 @@ const Products = () => {
       </div>
 
 
-      <div className={`grid gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-5   `:`md:grid-cols-1 lg:grid-cols-1`}`}>
+     
+     <div className={`grid gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-5   `:`md:grid-cols-1 lg:grid-cols-2`}`}>
      {Products.map((item,index)=>{
       return <Link
                key={index}
@@ -119,7 +119,7 @@ const Products = () => {
                <div  className={`border cursor-pointer border-description rounded-[12px] ${linear?``:`flex gap-1 md:items-center  md:grid-cols-5]`} lg:shrink-0 `}>
 
         {/* <div className="relative w-full md:col-span-1 "> */}
- <div className={`relative w-full  md:col-span-1 ${linear?``:`h-full`}`}>
+ <div className={`relative w-full  md:col-span-1 ${linear?`h-full`:`h-full`}`}>
 
 
 <Image
@@ -127,10 +127,10 @@ const Products = () => {
   alt={item.name}
   width={200}
   height={200}
-  className={`object-cover w-full  h-[276px] flex-shrink-0  ${
+  className={`object-cover w-full   flex-shrink-0 h-[276px]  ${
     linear
-      ? 'rounded-tl-[12px] rounded-tr-[12px]'
-      : 'rounded-[12px] rounded-tr-none rounded-br-none lg:max-h-[280px]'
+      ? 'rounded-tl-[12px] rounded-tr-[12px] md:h-fit'
+      : 'rounded-[12px] rounded-tr-none rounded-br-none lg:h-[310px]'
   }`}
 />
 <div className="absolute bottom-4 px-4 md:hidden">
@@ -162,7 +162,7 @@ const Products = () => {
 </div>}
 
  <button
-  className={` bg-white h-fit hover:bg-white rounded-lg p-3 shadow-md border border-saveBorder border-2 ${item.fixed?`order-1`:`order-`}`}
+  className={` bg-white h-fit hover:bg-white rounded-lg p-3 shadow-md border border-saveBorder border-1 ${item.fixed?`order-1`:`order-`}`}
   aria-label="Add to favorites"
 >
   <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20"  viewBox="0 0 23 20" fill="none">
@@ -198,14 +198,14 @@ const Products = () => {
           <div > 
 
 {/* <h4 className="mb-0 text-name font-semibold"> */}
-<h4 className={`text-[21px] font-poppins font-medium leading-[110%] text-name mb-1 line-clamp-2 ${!linear?``:`min-h-[50px]`}`}>
+<h4 className={`text-[21px] font-poppins font-medium leading-[110%] text-name mb-1  line-clamp-2 ${!linear?`min-h-[50px]`:`min-h-[50px]`}`}>
 {item.name}
 </h4>
 
 {/* <h4 className={`text-[21px] font-poppins font-medium leading-[110%] text-name mb-1 line-clamp-2 border ${!linear?``:`min-h-[50px]`}`}>
 {item.name}
 </h4> */}
-     <span className={`text-sm text-description line-clamp-2  `}>{item.description}  </span>
+     <span className={`text-sm text-description line-clamp-2  ${!linear?`min-h-[50px]`:``} `}>{item.description}  </span>
 
 
           </div>

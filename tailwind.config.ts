@@ -22,11 +22,13 @@ module.exports = {
     neatlyUsed:"#C0C9F8",
     saveBorder: "#8EAC90",
     collpse:"#EFEEEE",
-    inputBorder:"#B2B6C7", categoryBg:"#F7F7F8",
+    inputBorder:"#B2B6C7", categoryBg:"#E0E4F3",
     red:"#E30808",
     prevPage:"#818EBC",
     productDetailsDescription:"#656E8B",
-    promotedBg:"#F6F6F7"
+    promotedBg:"#F6F6F7",
+    radio:"#131F48",
+    inputBg:"#F2F4FE"
 
     
 

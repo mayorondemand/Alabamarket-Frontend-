@@ -74,7 +74,7 @@ const MobileDescription = ({ product, setShowPopUp }: MobileDescriptionProps) =>
                   ₦{product.price.toLocaleString()}
                 </h4>
                 {!product.fixed && (
-                  <button className="text-primary p-[8px] rounded bg-neatBg">Negotiable</button>
+                  <button className="text-primary py-[7px] px-[7px] w-fit rounded bg-neatBg">Negotiable</button>
                 )}
               </div>
               <button onClick={(()=>{

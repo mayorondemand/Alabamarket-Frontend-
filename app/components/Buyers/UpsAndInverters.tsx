@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-const RecommendedProducts = () => {
+const UpsAndInverters = () => {
 
   const [linear,setLinear]=useState(true)
 
@@ -20,7 +20,7 @@ const RecommendedProducts = () => {
 
     
   }
-  const [Products]=useState<product []> ([
+  const [Products,setProducts]=useState<product []> ([
     {
     name: "Samsung Galaxy S21",
     price: 180000,
@@ -83,9 +83,9 @@ const RecommendedProducts = () => {
 
 
   return (
-     <section>
+    <section>
       <div className="flex justify-between gap-4 items-center mb-5">
-         <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">Recommended for you</h6>
+         <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">Ups & Inverters </h6>
 
        <div className="flex items-center gap-4">  <div  onClick={(()=>{
     setLinear(false)
@@ -230,4 +230,4 @@ const RecommendedProducts = () => {
 };
 
 
-export default RecommendedProducts
+export default UpsAndInverters

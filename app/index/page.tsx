@@ -10,6 +10,6 @@ const Page=()=>{
       <Input />
       <Aside />
       <PriceFilter />
-      <SellerFilter /></>
+      <SellerFilter price="" /></>
 }
 export default Page

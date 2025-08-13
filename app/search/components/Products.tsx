@@ -3,9 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-const RecommendedProducts = () => {
+interface ProductsProps {
+  linear: boolean;
+}
 
-  const [linear,setLinear]=useState(true)
+const Products = ({ linear }: ProductsProps) => {
+
 
   interface product{
     name:string,
@@ -83,32 +86,15 @@ const RecommendedProducts = () => {
 
 
   return (
-     <section>
-      <div className="flex justify-between gap-4 items-center mb-5">
-         <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">Recommended for you</h6>
-
-       <div className="flex items-center gap-4">  <div  onClick={(()=>{
-    setLinear(false)
-   })} className="bg-collpse h-fit  p-3  rounded-full cursor-pointer ">
-
-   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M3.45691 11.171H20.5428C22.0801 11.171 22.8532 10.418 22.8532 8.87091V5.03391C22.8532 3.49705 22.0801 2.75391 20.5432 2.75391H3.45648C1.91963 2.75391 1.14648 3.49705 1.14648 5.03391V8.87134C1.14648 10.4185 1.91963 11.1715 3.45648 11.1715M3.45648 21.2463H20.5423C22.0796 21.2463 22.8528 20.5032 22.8528 18.9565V15.1092C22.8528 13.5822 22.0796 12.8292 20.5428 12.8292H3.45648C1.91963 12.8292 1.14648 13.5822 1.14648 15.1092V18.9565C1.14648 20.5032 1.91963 21.2463 3.45648 21.2463Z" fill="#8B92AA"/>
-</svg></div>
-         <div  onClick={(()=>{
-    setLinear(true)
-   })} className="bg-collpse h-fit  p-3  rounded-full cursor-pointer">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M3 21H7.675V16.325H3V21ZM9.675 21H14.325V16.325H9.675V21ZM16.325 21H21V16.325H16.325V21ZM3 14.325H7.675V9.675H3V14.325ZM9.675 14.325H14.325V9.675H9.675V14.325ZM16.325 14.325H21V9.675H16.325V14.325ZM3 7.675H7.675V3H3V7.675ZM9.675 7.675H14.325V3H9.675V7.675ZM16.325 7.675H21V3H16.325V7.675Z" fill="#172556"/>
-</svg>
-  </div></div>
-        
-
+    <section>
      
-      </div>
 
 
      
-     <div className={`grid gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-5   `:`md:grid-cols-1 lg:grid-cols-2`}`}>
+    
+            {/* <Products linear={linear} /> */}
+{Array.from({ length: 3 }).map((_, idx) => (
+ <div className={`grid  gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-4   `:`md:grid-cols-1 lg:grid-cols-2`}`}>
      {Products.map((item,index)=>{
       return <Link
                key={index}
@@ -225,9 +211,10 @@ const RecommendedProducts = () => {
               
      })}
     </div>
+))}
     </section>
   );
 };
 
 
-export default RecommendedProducts
+export default Products 
