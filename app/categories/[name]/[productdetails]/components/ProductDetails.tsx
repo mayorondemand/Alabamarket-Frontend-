@@ -52,7 +52,7 @@ const [showReport,setShowReport]=useState(false)
   }, [product.image]);
 
   return (
-    <main className="container flex flex-col gap-8">
+    <main className="container relative  flex flex-col gap-8">
       {/* Back Link */}
       <VideoCallPopUp showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       <Report showReport={showReport} setShowReport={setShowReport} />
@@ -69,7 +69,7 @@ const [showReport,setShowReport]=useState(false)
       </div>
 
       {/* <div className="grid  gap-10 md:grid-cols-5"> */}
-            <div className="flex gap-6 flex-col md:flex-row mb-8 ">
+              <div className="flex gap-6 flex-col md:flex-row pb-12  ">
 
 
         {/* Left: Product Images */}
@@ -111,6 +111,8 @@ const [showReport,setShowReport]=useState(false)
           <div className='hidden md:block'>
           <ProductHeader product={product} />
         </div>
+                         <div className='hidden md:block'><ReviewCard /></div>
+
         </div>
 <div className='md:hidden'>
 
@@ -120,7 +122,7 @@ const [showReport,setShowReport]=useState(false)
 </div>
 
         {/* Right: Product Info */}
-       <div className='sticky top-20 '>
+       <div >
  <div className=" flex  flex-col gap-10 sticky top-20   md:flex-[2] lg:flex-[1] lg:gap-6 ">
           {/* Price & Action */}
           <div className="hidden md:flex flex-col gap-[30px] p-4 rounded-xl bg-categoryBg h-fit">
@@ -143,6 +145,7 @@ const [showReport,setShowReport]=useState(false)
 
           {/* Seller Info */}
           <div className="bg-categoryBg p-4 rounded-xl w-full h-fit flex flex-col gap-6">
+           <Link href={`/seller`}>
             <div className="flex items-center gap-[15px]">
               <Image
                 alt={`${product.name} seller`}
@@ -166,7 +169,7 @@ const [showReport,setShowReport]=useState(false)
                   <span className="text-grey font-[400] text-[11px]">4 years on Alaba</span>
                 </div>
               </div>
-            </div>
+            </div></Link>
 
             <div className="flex flex-col gap-2">
               <button className="py-[12px] text-[17px] rounded-[8px] font-500 w-full bg-white text-primary border border-primary flex items-center justify-center gap-2">
@@ -199,11 +202,17 @@ const [showReport,setShowReport]=useState(false)
           </div>
         </div>
        </div>
+
+                <div className='md:hidden'><ReviewCard /></div>
+
       </div>
+            
+
+     
 
       {/* Product Name */}
      
-<ReviewCard />
+{/* <ReviewCard /> */}
 
 
 

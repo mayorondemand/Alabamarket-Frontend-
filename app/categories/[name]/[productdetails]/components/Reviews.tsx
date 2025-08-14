@@ -46,7 +46,7 @@ const CommentIcon = () => (
 
 export default function ReviewCard() {
   return (
-    <div className="w-fit flex flex-col gap-2 mb-4">
+    <div className="w-fit flex flex-col gap-2 mt-12 mb-6">
                  <h6 className="text-primary font-[600] text-[21px] mb-2 md:text-[27px]">What customers say about this product </h6>
 
       {reviews.map((review, idx) => (

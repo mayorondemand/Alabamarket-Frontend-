@@ -21,7 +21,7 @@ const SellerFilter = ({ price }: SellerFilterProps) => {
   const toggleCollapse = () => setIsOpen(!isOpen);
 
   return (
-    <div className=" mb-4 inline">
+    <div className=" mb-4 inline filterBg p-6 rounded-md xl:bg-filterBg">
       <div
         className="flex items-center justify-between gap-20 cursor-pointer mb-2"
         onClick={toggleCollapse}
@@ -55,7 +55,7 @@ const SellerFilter = ({ price }: SellerFilterProps) => {
                  
                   setSellerType('');
                 }}
-                className="accent-primary"
+                className="accent-primary h-5 w-5"
               />
               {range.label}
             </label>

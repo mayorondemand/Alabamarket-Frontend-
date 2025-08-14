@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable}`} >
        <Navbar />
           <NavbarWrapper>
-            <div className=" mt-20 py-6 flex flex-col ">
+            <div className="  py-6 mt-20 flex flex-col md:mt-10">
 {children}
             </div>
       

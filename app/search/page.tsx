@@ -73,14 +73,14 @@ const[showReport,setShowReport]=useState(false)
 <div
   className={`
     fixed font-Poppins  inset-0 bg-[rgba(57,64,58,0.35)] backdrop-blur-[3.5px]
-    flex items-end md: z-50 transition-all duration-300 ease-in-out
-    ${showReport ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+    flex items-start md: z-50 transition-all duration-300 ease-in-out
+    ${showReport ? 'opacity-100 pointer-events-auto traslate-x-0' : 'opacity-0 pointer-events-none traslate-x-full'}
     xl:hidden
   `}
 >
          
-  <div className="bg-neatBg rounded-md py-2 px-4 h-fit w-full">
-      <div className=' flex items-center justify-end   ' ><div className='cursor-pointer mt-2 mb-8' onClick={() => {
+  <div className="bg-white  py-8 px-4 h-3/4 w-full">
+      {/* <div className=' flex items-center justify-end   ' ><div className='cursor-pointer mt-2 mb-8' onClick={() => {
         setShowReport(false);
       }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
@@ -93,14 +93,14 @@ const[showReport,setShowReport]=useState(false)
   </g>
 </svg>
       </div>
-</div>
-    <PriceFilter />
+</div> */}
+    <PriceFilter setShowReport={ setShowReport} />
   </div>
 </div>
 
 {/* Desktop Sidebar (xl and above) */}
-<div className="hidden xl:block xl:col-span-1 lg:sticky top-20 py-2 px-4 bg-neatBg rounded-md h-fit w-full">
-  <PriceFilter />
+<div className="hidden xl:block xl:col-span-1 lg:sticky top-20 py-2 px-4 xl:bg-filterBg rounded-md h-fit w-full xl:px-1">
+  <PriceFilter setShowReport={ setShowReport} />
 </div>
 
 

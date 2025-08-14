@@ -30,14 +30,15 @@ module.exports = {
     promotedBg:"#F6F6F7",
     radio:"#131F48",
     inputBg:"#F2F4FE",
-    resultLenghtBg:"#E8ECFE"
+    resultLenghtBg:"#E8ECFE",
+    filterBg:"#F7F7F8"
 
     
 
       },
-      fontFamily: {
-                poppins: ['var(--font-poppins)', 'sans-serif'],
-
+      
+       fontFamily: {
+        poppins: ['var(--font-poppins)', 'sans-serif'],
       },
     },
   },
