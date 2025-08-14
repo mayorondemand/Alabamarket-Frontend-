@@ -39,7 +39,7 @@ const title="font-semibold text-primary text-[21px] font-[600] flex items-center
 
       {isOpen && (
         <div className="space-y-3 pl-1">
-          <div className="flex items-center gap-6">
+          <div className='flex flex-col gap-4'> <div className="flex items-center gap-6">
            <div className={label}>  <label htmlFor="min" className={`${filterStyle}`}>Min</label>
             <input
               type="number"
@@ -67,7 +67,12 @@ const title="font-semibold text-primary text-[21px] font-[600] flex items-center
               }}
               className=" w-full border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
             /></div>
-          </div>
+          </div> {(minPrice.trim() !== '' || maxPrice.trim() !== '') && (
+  <button className="py-[8px] text-[14px] rounded-[8px] font-500 w-full bg-primary text-white border border-primary flex items-center justify-center gap-2">
+    Apply filter 
+  </button>
+)}
+ </div>
           {priceRanges.map((range) => (
             <label
               key={range.value}

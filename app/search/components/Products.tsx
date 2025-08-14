@@ -94,7 +94,7 @@ const Products = ({ linear }: ProductsProps) => {
     
             {/* <Products linear={linear} /> */}
 {Array.from({ length: 3 }).map((_, idx) => (
- <div className={`grid  gap-5  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-4   `:`md:grid-cols-1 lg:grid-cols-2`}`}>
+ <div className={`grid  gap-5 mb-3  ${linear?`grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4   `:`md:grid-cols-1 lg:grid-cols-2`}`}>
      {Products.map((item,index)=>{
       return <Link
                key={index}
@@ -116,7 +116,7 @@ const Products = ({ linear }: ProductsProps) => {
   className={`object-cover w-full   flex-shrink-0 h-[276px]  ${
     linear
       ? 'rounded-tl-[12px] rounded-tr-[12px] md:h-fit'
-      : 'rounded-[12px] rounded-tr-none rounded-br-none lg:h-[310px]'
+      : 'rounded-[12px] rounded-tr-none rounded-br-none lg:h-[320px]'
   }`}
 />
 <div className="absolute bottom-4 px-4 md:hidden">
@@ -177,14 +177,14 @@ const Products = ({ linear }: ProductsProps) => {
   { "₦"+item.price.toLocaleString()} </h3>
 
 
-{item.fixed?     <span className="text-sm text-description min-h-5"> {`(fixed price)`} </span>:<span className="text-sm text-description min-h-5"> {`(Negotiable)`}  </span>
+{item.fixed?     <span className="text-sm text-description min-h-5  lg:min-h-10"> {`(fixed price)`} </span>:<span className="text-sm  text-description min-h-5 lg:min-h-10"> {`(Negotiable)`}  </span>
 }
           </div>
 
           <div > 
 
 {/* <h4 className="mb-0 text-name font-semibold"> */}
-<h4 className={`text-[21px] font-poppins font-medium leading-[110%] text-name mb-1  line-clamp-2 ${!linear?`min-h-[50px]`:`min-h-[50px]`}`}>
+<h4 className={`text-[21px]  font-poppins font-medium leading-[110%] text-name mb-1  line-clamp-2 ${!linear?`min-h-[50px]`:`min-h-[50px]`}`}>
 {item.name}
 </h4>
 

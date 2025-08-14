@@ -58,7 +58,7 @@ export default function AllSubCategories({categories}: AllSubCategoriesProps) {
          
 
           {/* Items Grid */}
-          <div className="grid grid-cols-4 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7">
+          <div className="grid grid-cols-4 gap-4 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
             {cat.subcategories.map((product: Subcategories, pIdx: number) => (
               <Link
                 key={pIdx}

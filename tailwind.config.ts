@@ -29,7 +29,8 @@ module.exports = {
     productDetailsDescription:"#656E8B",
     promotedBg:"#F6F6F7",
     radio:"#131F48",
-    inputBg:"#F2F4FE"
+    inputBg:"#F2F4FE",
+    resultLenghtBg:"#E8ECFE"
 
     
 
