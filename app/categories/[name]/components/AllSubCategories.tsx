@@ -46,7 +46,7 @@ export default function AllSubCategories({categories}: AllSubCategoriesProps) {
               <p
               className="text-primary text-[14px]  font-[500] underline md:text-[17px]"
             >
-                {categories[0].name}
+                {categories[0]?.name}
             </p>
             {/* You can display a specific category name inside the map below if needed */}
           </div>

@@ -36,7 +36,8 @@ const tips = [
   "Don’t pay until you’ve inspected the product",
   "Meet at a safe public place",
   "Buy from verified sellers for extra trust",
-];
+]
+
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
   const [activeImg, setActiveImg] = useState(product.image);
@@ -144,6 +145,7 @@ const [showReport,setShowReport]=useState(false)
           </div>
 
           {/* Seller Info */}
+            
           <div className="bg-categoryBg p-4 rounded-xl w-full h-fit flex flex-col gap-6">
            <Link href={`/seller`}>
             <div className="flex items-center gap-[15px]">
