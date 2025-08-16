@@ -124,8 +124,8 @@ p {
 
   @media screen and (min-width: 1020px) {
     .container {
-      padding-left: 5rem;
-      padding-right: 5rem;
+      padding-left: 4.8rem;
+      padding-right: 4.8rem;
     }
   }
 }
