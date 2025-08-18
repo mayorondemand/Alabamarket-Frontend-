@@ -101,7 +101,7 @@ export default function ReviewCard() {
 
       {/* View all reviews link */}
 <div className="flex justify-end">
-  <Link href={`/reviews`} className="underline w-fit">
+  <Link href={`/seller/reviews`} className="underline w-fit">
     <p className="text-primary mt-2 cursor-pointer text-[17px] font-[600]">See all reviews</p>
   </Link>
 </div>

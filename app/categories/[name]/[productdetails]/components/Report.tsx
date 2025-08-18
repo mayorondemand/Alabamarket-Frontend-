@@ -16,6 +16,8 @@ const reportReasons: string[] = [
   'Other',
 ];
   const [details, setDetails] = useState('');
+    const [others, setOthers] = useState('');
+
   return (
   <>
   <div
@@ -72,9 +74,9 @@ const reportReasons: string[] = [
 </svg>
             </div>
             {reason=="Other" ? <span className="text-radio  text-[14px] flex  gap-4 items-cente md:text-[17px]">{reason} <input
-          value={details}
+          value={others}
           type="text"
-          onChange={(e) => setDetails(e.target.value)}
+          onChange={(e) => setOthers(e.target.value)}
           placeholder="(Please describe)"
           className="w-full  rounded px-3 py-2 resize-none border-none bg-inputBg  focus:outline-none"
           style={{ borderColor: '#7C6100' }}

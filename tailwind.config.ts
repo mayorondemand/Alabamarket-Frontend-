@@ -31,7 +31,12 @@ module.exports = {
     radio:"#131F48",
     inputBg:"#F2F4FE",
     resultLenghtBg:"#E8ECFE",
-    filterBg:"#F7F7F8"
+    filterBg:"#F7F7F8",
+    borderChat:"#E3E4E5",
+  star:"#7C6100",
+  reviewRangeBg:'#F8F7F7',
+  savedBorder:"#8B9BD5"
+  
 
     
 

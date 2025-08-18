@@ -80,7 +80,7 @@ const [showPopUp,setShowPopUp]=useState(false)
         
 <div className="flex items-center gap-6 text-sm">
   <IconLink
-    href="/saved"
+    href="/buyer/saved"
     label="Saved items"
     icon={<Heart size={20} className={isAuthenticated ? 'fill-white' : 'fill-primary'} />}
     whiteBg={!isAuthenticated}
@@ -96,13 +96,13 @@ const [showPopUp,setShowPopUp]=useState(false)
   {!isAuthenticated && (
     <>
       <IconLink
-        href="/notifications"
+        href="/buyer/notifications"
         label="Notifications"
         icon={<Bell size={20} className="fill-primary" />}
         whiteBg
       />
       <IconLink
-        href="/messages"
+        href="/buyer/chats"
         label="Messages"
         icon={<MessageSquare size={20} className="fill-primary" />}
         whiteBg

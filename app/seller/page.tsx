@@ -10,8 +10,8 @@ import { useState, useCallback } from 'react';
 import { ArrowLeft, CheckCircle, MessageCircle,MessageSquareText, Phone, AlertCircle } from 'lucide-react';
 import ReviewCard from '../categories/[name]/[productdetails]/components/Reviews';
 import SellerListing from './components/SellerListings';
-
-
+import VideoCallPopUp from '../categories/[name]/[productdetails]/components/VideoCallPopUp';
+import Report from '../categories/[name]/[productdetails]/components/Report';
 type Product = {
   name: string;
   image: string;
@@ -41,9 +41,12 @@ const Page = () => {
   yearsOnAlaba: 4,
   description: "We sell UK-used phones, TVs, laptops, and accessories at unbeatable prices. All gadgets are tested and come with limited warranty. Visit us in-store or chat with us online."
 };
-
+const [showPopUp,setShowPopUp]=useState(false)
+const [showReport,setShowReport]=useState(false)
   return (
     <div className="container flex flex-col gap-4 md:py-10">
+      <VideoCallPopUp showPopUp={showPopUp} setShowPopUp={setShowPopUp}/>
+      <Report  showReport={showReport} setShowReport={setShowReport}/>
 <div className="flex items-center">
         <Link
           href="/search"
@@ -110,7 +113,7 @@ const Page = () => {
 </div>
             <div className="flex flex-col gap-4 md:flex-row mb:gap-8">
               <button onClick={(()=>{
-            // setShowPopUp(true)
+            setShowPopUp(true)
            })} className="py-[12px] text-[17px] wift rounded-[8px] font-500 w-full bg-primary text-white flex items-center justify-center text-center gap-2">
            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
   <path d="M20.117 7.62379C19.9233 7.60142 19.7272 7.63618 19.553 7.72379L15 9.99879V13.9988L19.553 16.2738C19.7053 16.3499 19.8744 16.3858 20.0445 16.3783C20.2145 16.3707 20.3799 16.3198 20.5248 16.2305C20.6697 16.1412 20.7894 16.0164 20.8725 15.8678C20.9557 15.7193 20.9996 15.552 21 15.3818V8.61579C20.9997 8.37103 20.9097 8.13487 20.747 7.95205C20.5842 7.76922 20.3601 7.65243 20.117 7.62379Z" fill="white"/>
@@ -138,7 +141,8 @@ const Page = () => {
               ))}
             </ul>
             <button onClick={(()=>{
-              // setShowReport(true)
+              setShowReport(true)
+              
             })} className="py-[12px] text-[17px] mt-2 flex items-center gap-2 justify-center rounded-[8px] font-500 w-full bg-white text-red border border-red">
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M12 17C12.2833 17 12.521 16.904 12.713 16.712C12.905 16.52 13.0007 16.2827 13 16C12.9993 15.7173 12.9033 15.48 12.712 15.288C12.5207 15.096 12.2833 15 12 15C11.7167 15 11.4793 15.096 11.288 15.288C11.0967 15.48 11.0007 15.7173 11 16C10.9993 16.2827 11.0953 16.5203 11.288 16.713C11.4807 16.9057 11.718 17.0013 12 17ZM12 13C12.2833 13 12.521 12.904 12.713 12.712C12.905 12.52 13.0007 12.2827 13 12V8C13 7.71667 12.904 7.47933 12.712 7.288C12.52 7.09667 12.2827 7.00067 12 7C11.7173 6.99933 11.48 7.09533 11.288 7.288C11.096 7.48067 11 7.718 11 8V12C11 12.2833 11.096 12.521 11.288 12.713C11.48 12.905 11.7173 13.0007 12 13ZM9.075 21C8.80833 21 8.55433 20.95 8.313 20.85C8.07167 20.75 7.859 20.6083 7.675 20.425L3.575 16.325C3.39167 16.1417 3.25 15.929 3.15 15.687C3.05 15.445 3 15.1913 3 14.926V9.076C3 8.80933 3.05 8.55533 3.15 8.314C3.25 8.07267 3.39167 7.86 3.575 7.676L7.675 3.576C7.85833 3.39267 8.071 3.251 8.313 3.151C8.555 3.051 8.809 3.00067 9.075 3H14.925C15.1917 3 15.446 3.05 15.688 3.15C15.93 3.25 16.1423 3.39167 16.325 3.575L20.425 7.675C20.6083 7.85833 20.75 8.071 20.85 8.313C20.95 8.555 21 8.809 21 9.075V14.925C21 15.1917 20.95 15.446 20.85 15.688C20.75 15.93 20.6083 16.1423 20.425 16.325L16.325 20.425C16.1417 20.6083 15.929 20.75 15.687 20.85C15.445 20.95 15.191 21 14.925 21H9.075Z" fill="#E30808"/>
