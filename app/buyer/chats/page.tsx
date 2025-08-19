@@ -35,7 +35,7 @@ const initialData: ChatData[] = [
     verified: true,
     lastTime: "2 hrs ago",
     messages: [
-      {
+       {
         type: "system",
         text:
           "Please avoid sharing personal or financial details here. Use clear questions and only deal with verified sellers.",
@@ -53,12 +53,7 @@ const initialData: ChatData[] = [
         text: "13B Freedom Line, near Samsung Plaza, Alaba Int'l",
         time: "10:05",
       },
-      {
-        type: "system",
-        text:
-          "Please avoid sharing personal or financial details here. Use clear questions and only deal with verified sellers.",
-        time: "April 5, 2024",
-      },
+     
       { type: "sent", text: "Hi, is this item still available?" },
       {
         type: "received",
@@ -71,12 +66,115 @@ const initialData: ChatData[] = [
         text: "13B Freedom Line, near Samsung Plaza, Alaba Int'l",
         time: "10:05",
       },
+      
+      { type: "sent", text: "Hi, is this item still available?" },
       {
-        type: "system",
+        type: "received",
         text:
-          "Please avoid sharing personal or financial details here. Use clear questions and only deal with verified sellers.",
-        time: "April 5, 2024",
+          "Yes, it's available. Nearly used. You can inspect it at our Alaba store or arrange pickup.",
       },
+      { type: "sent", text: "Can you share the exact address?" },
+      {
+        type: "received",
+        text: "13B Freedom Line, near Samsung Plaza, Alaba Int'l",
+        time: "10:05",
+      },
+    ],
+  },
+  {
+    vendor: "God's Own Limited",
+    avatar: "/airfryer.jpg",
+    price: "₦520,000",
+    product: "Buchymix 7L Air Fryer",
+    verified: false,
+    lastTime: "2 days ago",
+    messages: [
+      { type: "received", text: "Good morning! The air fryer is ready for pickup." },
+      { type: "sent", text: "What's the condition like?" },
+    ],
+  },
+   {
+    vendor: "God's Own Limited",
+    avatar: "/airfryer.jpg",
+    price: "₦520,000",
+    product: "Buchymix 7L Air Fryer",
+    verified: false,
+    lastTime: "2 days ago",
+    messages: [
+      { type: "received", text: "Good morning! The air fryer is ready for pickup." },
+      { type: "sent", text: "What's the condition like?" },
+    ],
+  },
+   {
+    vendor: "God's Own Limited",
+    avatar: "/airfryer.jpg",
+    price: "₦520,000",
+    product: "Buchymix 7L Air Fryer",
+    verified: false,
+    lastTime: "2 days ago",
+    messages: [
+      { type: "received", text: "Good morning! The air fryer is ready for pickup." },
+      { type: "sent", text: "What's the condition like?" },
+    ],
+  },
+   {
+    vendor: "God's Own Limited",
+    avatar: "/airfryer.jpg",
+    price: "₦520,000",
+    product: "Buchymix 7L Air Fryer",
+    verified: false,
+    lastTime: "2 days ago",
+    messages: [
+      { type: "received", text: "Good morning! The air fryer is ready for pickup." },
+      { type: "sent", text: "What's the condition like?" },
+    ],
+  }, {
+    vendor: "God's Own Limited",
+    avatar: "/airfryer.jpg",
+    price: "₦520,000",
+    product: "Buchymix 7L Air Fryer",
+    verified: false,
+    lastTime: "2 days ago",
+    messages: [
+      { type: "received", text: "Good morning! The air fryer is ready for pickup." },
+      { type: "sent", text: "What's the condition like?" },
+    ],
+  },
+   {
+    vendor: "Excel Home Electronics",
+    avatar: "/airfryer.jpg",
+    price: "₦540,000",
+    product: "Buchymix 7L Air Fryer",
+    verified: true,
+    lastTime: "2 hrs ago",
+    messages: [
+     
+      { type: "sent", text: "Hi, is this item still available?" },
+      {
+        type: "received",
+        text:
+          "Yes, it's available. Nearly used. You can inspect it at our Alaba store or arrange pickup.",
+      },
+      { type: "sent", text: "Can you share the exact address?" },
+      {
+        type: "received",
+        text: "13B Freedom Line, near Samsung Plaza, Alaba Int'l",
+        time: "10:05",
+      },
+      
+      { type: "sent", text: "Hi, is this item still available?" },
+      {
+        type: "received",
+        text:
+          "Yes, it's available. Nearly used. You can inspect it at our Alaba store or arrange pickup.",
+      },
+      { type: "sent", text: "Can you share the exact address?" },
+      {
+        type: "received",
+        text: "13B Freedom Line, near Samsung Plaza, Alaba Int'l",
+        time: "10:05",
+      },
+     
       { type: "sent", text: "Hi, is this item still available?" },
       {
         type: "received",
@@ -157,7 +255,7 @@ const Page = () => {
   const [showChatList, setShowChatList] = useState(true); // Toggle for mobile view
 
   return (
-    <main className="container flex flex-col gap-5 md:py-10 lg:py-0">
+    <main className="container flex flex-col gap-5   lg:py-0">
       {/* <div className="flex items-center">
         <Link
           href="/"
@@ -184,9 +282,10 @@ const Page = () => {
         </div> */}
 
         {initialData.length > 0 ? (
-          <section className="flex flex-col lg:flex-row gap-10">
+        //   <section className="flex flex-col lg:flex-row gap-10 fixed left-0 right-0">
+        <section className="flex flex-col lg:flex-row gap-10 h-[600px] overflow-y-hidde   ">
             <div
-              className={`h-[500px] overflow-y-scroll lg:flex-[2]  ${showChatList ? "block" : "hidden lg:block"}`}
+              className={`h-full overflow-y-scroll lg:flex-[2] xl:flex-[1.4]  ${showChatList ? "block" : "hidden lg:block"}`}
             >
               <ChatList
                 initialData={initialData}
@@ -197,7 +296,7 @@ const Page = () => {
               />
             </div>
             <div
-              className={`lg:flex-[4]   bg-filterBg rounded-3xl ${!showChatList ? "block" : "hidden lg:block"}`}
+              className={`h-full   lg:flex-[4]   bg-filterBg rounded-3xl ${!showChatList ? "block" : "hidden lg:block"}`}
             >
               <ChatPage
                 selectedChat={selectedChat}

@@ -29,7 +29,7 @@ interface ChatListProps {
 
 const ChatList: React.FC<ChatListProps> = ({ initialData, onChatSelect }) => {
   return (
-    <div className="bg-[#F5F6FC] rounded-3xl">
+    <div className="bg-[#F5F6FC] rounded-3xl h-full">
       {initialData.map((chat, index) => {
         const lastMessage = chat.messages[chat.messages.length - 1]?.text;
 

@@ -1,17 +1,21 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
 import { ChatData,Message  } from "../page";
 import Link from "next/link";
+import { ArrowLeft, CheckCircle, MessageCircle,MessageSquareText, Phone, AlertCircle } from 'lucide-react';
+
+import VideoCallPopUp from "@/app/categories/[name]/[productdetails]/components/VideoCallPopUp";
 interface ChatPageProps {
   selectedChat: ChatData | null;
   setShowChatList: (show: boolean) => void; // To toggle back to ChatList on mobile
 }
 
 const ChatPage: React.FC<ChatPageProps> = ({ selectedChat, setShowChatList }) => {
+const [showPopUp,setShowPopUp]=useState(false)
+console.log(selectedChat)
     const verifiedSeller=true
   if (!selectedChat) {
     return (
@@ -22,7 +26,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ selectedChat, setShowChatList }) =>
   }
 
   return (
-    <div className="flex flex-col h-full bg-filterBg rounded-3xl">
+    <div className="flex flex-col relative h-full bg-filterBg rounded-3xl relative">
       {/* Header */}
       {/* <div className="flex items-center gap-3 p-4 border-b border-grey">
       
@@ -43,8 +47,12 @@ const ChatPage: React.FC<ChatPageProps> = ({ selectedChat, setShowChatList }) =>
           </p>
         </div>
       </div> */}
-<Link href={`/profile`}>
-            <div className="flex items-center  py-4 px-4 bg-white shadow-md round-tl-xl rounded-tr-3xl gap-[15px]">
+{/* <Link href={`/profile`}> */}
+      <VideoCallPopUp showPopUp={showPopUp} setShowPopUp={setShowPopUp}/>
+
+          <div className="py-4 px-4 flex items-center justify-between bg-white shadow-md round-tl-xl rounded-tr-3xl">
+
+              <div className="flex items-center   gap-[10px]">
                   <button
           className="lg:hidden p-2"
           onClick={() => setShowChatList(true)} 
@@ -72,17 +80,71 @@ const ChatPage: React.FC<ChatPageProps> = ({ selectedChat, setShowChatList }) =>
                   )}
                 </div>
               </div>
-            </div></Link>
+            </div>
+
+            <div className="h-fit flex items-center gap-4"> 
+                <span className="p-1 rounded-full bg-received cursor-pointer hidden lg:block" onClick={(()=>{
+                    setShowPopUp(true)
+                })}> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M20.117 7.6277C19.9233 7.60532 19.7272 7.64008 19.553 7.7277L15 10.0027V14.0027L19.553 16.2777C19.7053 16.3538 19.8744 16.3897 20.0445 16.3822C20.2145 16.3746 20.3799 16.3237 20.5248 16.2344C20.6697 16.1451 20.7894 16.0203 20.8725 15.8717C20.9557 15.7232 20.9996 15.5559 21 15.3857V8.6197C20.9997 8.37494 20.9097 8.13878 20.747 7.95595C20.5842 7.77313 20.3601 7.65633 20.117 7.6277Z" fill="#172556"/>
+  <path d="M5 5C3.355 5 2 6.355 2 8V16C2 17.645 3.355 19 5 19H13C14.645 19 16 17.645 16 16V8C16 6.355 14.645 5 13 5H5Z" fill="#172556"/>
+</svg>
+</span>
+  <span className="p-1 cursor-pointer rounded-full bg-received"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M10.5 6C10.5 5.79 10.5 5.6865 10.512 5.5995C10.5502 5.32456 10.677 5.0696 10.8733 4.87332C11.0696 4.67704 11.3246 4.55018 11.5995 4.512C11.685 4.5 11.79 4.5 12 4.5C12.21 4.5 12.3135 4.5 12.4005 4.512C12.6754 4.55018 12.9304 4.67704 13.1267 4.87332C13.323 5.0696 13.4498 5.32456 13.488 5.5995C13.5 5.685 13.5 5.79 13.5 6C13.5 6.21 13.5 6.3135 13.488 6.4005C13.4498 6.67544 13.323 6.9304 13.1267 7.12668C12.9304 7.32296 12.6754 7.44982 12.4005 7.488C12.315 7.5 12.21 7.5 12 7.5C11.79 7.5 11.6865 7.5 11.5995 7.488C11.3246 7.44982 11.0696 7.32296 10.8733 7.12668C10.677 6.9304 10.5502 6.67544 10.512 6.4005C10.5 6.315 10.5 6.21 10.5 6ZM10.5 12C10.5 11.79 10.5 11.6865 10.512 11.5995C10.5502 11.3246 10.677 11.0696 10.8733 10.8733C11.0696 10.677 11.3246 10.5502 11.5995 10.512C11.685 10.5 11.79 10.5 12 10.5C12.21 10.5 12.3135 10.5 12.4005 10.512C12.6754 10.5502 12.9304 10.677 13.1267 10.8733C13.323 11.0696 13.4498 11.3246 13.488 11.5995C13.5 11.685 13.5 11.79 13.5 12C13.5 12.21 13.5 12.3135 13.488 12.4005C13.4498 12.6754 13.323 12.9304 13.1267 13.1267C12.9304 13.323 12.6754 13.4498 12.4005 13.488C12.315 13.5 12.21 13.5 12 13.5C11.79 13.5 11.6865 13.5 11.5995 13.488C11.3246 13.4498 11.0696 13.323 10.8733 13.1267C10.677 12.9304 10.5502 12.6754 10.512 12.4005C10.5 12.315 10.5 12.21 10.5 12ZM10.5 18C10.5 17.7915 10.5 17.6865 10.512 17.5995C10.5504 17.3251 10.6772 17.0706 10.8731 16.8746C11.0691 16.6787 11.3236 16.5519 11.598 16.5135C11.6865 16.5015 11.79 16.5015 11.9985 16.5015C12.207 16.5015 12.3135 16.5015 12.399 16.5135C12.6734 16.5519 12.9279 16.6787 13.1239 16.8746C13.3198 17.0706 13.4466 17.3251 13.485 17.5995C13.497 17.6865 13.497 17.7915 13.497 18C13.497 18.2085 13.497 18.3135 13.485 18.4005C13.4466 18.6749 13.3198 18.9294 13.1239 19.1254C12.9279 19.3213 12.6734 19.4481 12.399 19.4865C12.312 19.4985 12.207 19.4985 11.9985 19.4985C11.79 19.4985 11.685 19.4985 11.598 19.4865C11.3236 19.4481 11.0691 19.3213 10.8731 19.1254C10.6772 18.9294 10.5504 18.6749 10.512 18.4005C10.5 18.3135 10.5 18.2085 10.5 18Z" fill="#172556"/>
+</svg>
+</span>
+             </div>
+          </div>
+           <div className="flex flex-col items-center justify-between px-4 py-4 gap-4 md:flex-row">
+
+             <div className="flex items-center   gap-[10px]">
+                
+              <Image
+                alt={`${selectedChat.vendor} seller`}
+                className="h-[64px] w-[64px] aspect-square rounded-full"
+                src={'/product.png'}
+                height={100}
+                width={100}
+              />
+              <div className="flex flex-col gap-[6px]">
+                <h4 className="text-primary font-[500] text-[16px] leading-[130%]">
+                  Excel Home Electronics
+                </h4>
+                <div>
+                
+                </div>
+              </div>
+            </div>
+            <h4 className="text-primary font-[600]"> {selectedChat.price} </h4>
+            <div className="flex flex-col gap-2">
+              <button onClick={(()=>{
+            setShowPopUp(true)
+           })} className="py-[10px] text-[17px] px-2 w-full rounded-[8px] font-500 w-full bg-primary text-white flex items-center justify-center text-center gap-2 lg:hidden">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+  <path d="M20.117 7.62379C19.9233 7.60142 19.7272 7.63618 19.553 7.72379L15 9.99879V13.9988L19.553 16.2738C19.7053 16.3499 19.8744 16.3858 20.0445 16.3783C20.2145 16.3707 20.3799 16.3198 20.5248 16.2305C20.6697 16.1412 20.7894 16.0164 20.8725 15.8678C20.9557 15.7193 20.9996 15.552 21 15.3818V8.61579C20.9997 8.37103 20.9097 8.13487 20.747 7.95205C20.5842 7.76922 20.3601 7.65243 20.117 7.62379Z" fill="white"/>
+  <path d="M5 5C3.355 5 2 6.355 2 8V16C2 17.645 3.355 19 5 19H13C14.645 19 16 17.645 16 16V8C16 6.355 14.645 5 13 5H5Z" fill="white"/>
+</svg>   Request video call
+            </button>
+              <button className="py-[10px] px-2  w-full text-[17px] rounded-[8px] font-500 w-full bg-white text-primary border border-primary flex items-center justify-center gap-2">
+                <MessageSquareText size={20}  /> Show contact 
+              </button>
+              </div>
+              
+
+            </div>
       {/* Messages */}
-      <div className="flex-1 p-4 overflow-y-auto">
+      <div className="flex-1 p-4 overflow-y-auto my-8">
         {selectedChat.messages.map((message: Message, index: number) => (
           <div
             key={index}
             className={`mb-4 ${
               message.type === "sent"
-                ? "ml-auto bg-primary text-white rounded-tl-lg rounded-bl-lg rounded-br-lg"
+                ? "ml-auto bg-sent text-primary rounded-tl-lg rounded-bl-lg rounded-br-lg"
                 : message.type === "received"
-                ? "mr-auto bg-white text-primary rounded-tr-lg rounded-bl-lg rounded-br-lg"
+                ? "mr-auto bg-received text-primary rounded-tr-lg rounded-bl-lg rounded-br-lg"
                 : "text-center text-grey bg-transparent m-auto" // System message
             } max-w-[70%] p-3`}
           >
@@ -95,7 +157,7 @@ const ChatPage: React.FC<ChatPageProps> = ({ selectedChat, setShowChatList }) =>
       </div>
 
       {/* Input Area */}
-      <div className="p-4 border-t border-grey">
+      <div className="p-4 border-t border-grey ">
         <input
           type="text"
           placeholder="Type a message..."

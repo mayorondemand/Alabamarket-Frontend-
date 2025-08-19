@@ -36,7 +36,9 @@ module.exports = {
   star:"#7C6100",
   reviewRangeBg:'#F8F7F7',
   savedBorder:"#8B9BD5",
-  activeChat:"#D5DBF6"
+  activeChat:"#D5DBF6",
+  sent:"#E0E3F0",
+  received:"#FEFEFE"
   
 
     

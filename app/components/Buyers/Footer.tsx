@@ -3,6 +3,7 @@
 import { Instagram, Facebook, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const footerSections = [
   {
@@ -38,8 +39,13 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+    const pathname = usePathname();
+
+    const hideFooterRoutes = ["/buyer/chats"];
+  const shouldHideFooter = hideFooterRoutes.includes(pathname);
+
   return (
-    <footer className="bg-primary text-white container py-14">
+    <footer className={`bg-primary text-white container py-14 ${shouldHideFooter?'hidden':'' } `}>
       {/* <div className="grid grid-cols-5  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div className='col-span-1'>
           <div className=" rounded-md inline-flex  mb-4">
