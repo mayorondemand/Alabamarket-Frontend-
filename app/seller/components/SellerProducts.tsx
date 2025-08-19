@@ -103,7 +103,7 @@ const SellerProducts = ({linear}:SellerProductsProps) => {
                <div  className={`border cursor-pointer border-description rounded-[12px] ${linear?``:`flex gap-1 md:items-center  md:grid-cols-5]`} lg:shrink-0 `}>
 
         {/* <div className="relative w-full md:col-span-1 "> */}
- <div className={`w-full  md:col-span-1 ${linear?`h-full`:`h-full`}`}>
+ <div className={`relative w-full  md:col-span-1 ${linear?`h-full`:`h-full`}`}>
 
 
 <Image
@@ -189,7 +189,7 @@ const SellerProducts = ({linear}:SellerProductsProps) => {
 {/* <h4 className={`text-[21px] font-poppins font-medium leading-[110%] text-name mb-1 line-clamp-2 border ${!linear?``:`min-h-[50px]`}`}>
 {item.name}
 </h4> */}
-     <span className={`text-sm text-description line-clamp-2  ${!linear?`md:min-h-[50px]`:``} `}>{item.description}  </span>
+     <span className={`text-sm text-description line-clamp-2  ${!linear?`min-h-[50px]`:``} `}>{item.description}  </span>
 
 
           </div>

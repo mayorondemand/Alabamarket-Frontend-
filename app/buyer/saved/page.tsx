@@ -4,6 +4,8 @@ import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Recommended from "@/app/seller/reviews/components/Recommended";
 import { it } from "node:test";
+import { styleText } from "util";
+import { availableParallelism } from "os";
 type Message = {
   type: "system" | "sent" | "received";
   text: string;
@@ -72,18 +74,34 @@ const initialData: Record<number, ChatData> = {
 };
 const savedItems=[
     {
-        name:"xyz",
+        name:"LG Washing Machine",
         price:"400",
         stillAVailable:true,
         img:"/product.png",
         location:"Alaba Lagos",
-        icon:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        icon:<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
   <path d="M4.9987 2.66406C2.9737 2.66406 1.33203 4.30573 1.33203 6.33073C1.33203 9.9974 5.66536 13.3307 7.9987 14.1061C10.332 13.3307 14.6654 9.9974 14.6654 6.33073C14.6654 4.30573 13.0237 2.66406 10.9987 2.66406C9.7587 2.66406 8.66203 3.27973 7.9987 4.22206C7.66053 3.74053 7.21135 3.34753 6.68915 3.07634C6.16695 2.80514 5.58712 2.66373 4.9987 2.66406Z" fill="#172556" stroke="#172556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>,
+locationIcon:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5093 14.7586C7.5093 14.7586 2.66797 10.6813 2.66797 6.66927C2.66797 5.25478 3.22987 3.89823 4.23007 2.89803C5.23026 1.89784 6.58681 1.33594 8.0013 1.33594C9.41579 1.33594 10.7723 1.89784 11.7725 2.89803C12.7727 3.89823 13.3346 5.25478 13.3346 6.66927C13.3346 10.6813 8.4933 14.7586 8.4933 14.7586C8.22397 15.0066 7.78064 15.0039 7.5093 14.7586ZM8.0013 9.0026C8.30772 9.0026 8.61114 8.94225 8.89423 8.82499C9.17732 8.70773 9.43455 8.53586 9.65122 8.31919C9.86789 8.10252 10.0398 7.84529 10.157 7.5622C10.2743 7.27911 10.3346 6.97569 10.3346 6.66927C10.3346 6.36285 10.2743 6.05944 10.157 5.77634C10.0398 5.49325 9.86789 5.23603 9.65122 5.01936C9.43455 4.80269 9.17732 4.63081 8.89423 4.51355C8.61114 4.39629 8.30772 4.33594 8.0013 4.33594C7.38246 4.33594 6.78897 4.58177 6.35139 5.01936C5.9138 5.45694 5.66797 6.05043 5.66797 6.66927C5.66797 7.28811 5.9138 7.8816 6.35139 8.31919C6.78897 8.75677 7.38246 9.0026 8.0013 9.0026Z" fill="#112672"/>
 </svg>
-    }
+    },
+     {
+        name:"LG Washing Machine",
+        price:"400",
+        stillAVailable:false,
+        img:"/product.png",
+        location:"ikorodu, Lagos",
+        icon:<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
+  <path d="M4.9987 2.66406C2.9737 2.66406 1.33203 4.30573 1.33203 6.33073C1.33203 9.9974 5.66536 13.3307 7.9987 14.1061C10.332 13.3307 14.6654 9.9974 14.6654 6.33073C14.6654 4.30573 13.0237 2.66406 10.9987 2.66406C9.7587 2.66406 8.66203 3.27973 7.9987 4.22206C7.66053 3.74053 7.21135 3.34753 6.68915 3.07634C6.16695 2.80514 5.58712 2.66373 4.9987 2.66406Z" fill="#172556" stroke="#172556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>,
+locationIcon:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.5093 14.7586C7.5093 14.7586 2.66797 10.6813 2.66797 6.66927C2.66797 5.25478 3.22987 3.89823 4.23007 2.89803C5.23026 1.89784 6.58681 1.33594 8.0013 1.33594C9.41579 1.33594 10.7723 1.89784 11.7725 2.89803C12.7727 3.89823 13.3346 5.25478 13.3346 6.66927C13.3346 10.6813 8.4933 14.7586 8.4933 14.7586C8.22397 15.0066 7.78064 15.0039 7.5093 14.7586ZM8.0013 9.0026C8.30772 9.0026 8.61114 8.94225 8.89423 8.82499C9.17732 8.70773 9.43455 8.53586 9.65122 8.31919C9.86789 8.10252 10.0398 7.84529 10.157 7.5622C10.2743 7.27911 10.3346 6.97569 10.3346 6.66927C10.3346 6.36285 10.2743 6.05944 10.157 5.77634C10.0398 5.49325 9.86789 5.23603 9.65122 5.01936C9.43455 4.80269 9.17732 4.63081 8.89423 4.51355C8.61114 4.39629 8.30772 4.33594 8.0013 4.33594C7.38246 4.33594 6.78897 4.58177 6.35139 5.01936C5.9138 5.45694 5.66797 6.05043 5.66797 6.66927C5.66797 7.28811 5.9138 7.8816 6.35139 8.31919C6.78897 8.75677 7.38246 9.0026 8.0013 9.0026Z" fill="#112672"/>
+</svg>
+    },
 ]
 const Page=()=>{
-//    
+const availableStyle=`px-2 py-1 rounded-[24px]  bg-white font-[400] `
 return <main className="container flex flex-col gap-5 md:py-10 lg:py-0">
     <div className="flex items-center">
         <Link
@@ -149,8 +167,8 @@ return <main className="container flex flex-col gap-5 md:py-10 lg:py-0">
   </div>
   
 
-  <div className="grid gap-5  md:grid-cols-2">
-    <div className="bg-inputBg p-4 flex flex-col gap-8 rounded-[24px] md:mt-10">
+  <div className="grid gap-5  lg:grid-cols-2">
+    <div className="bg-inputBg p-4 flex flex-col gap-8 rounded-[24px] md:mt-10 h-fit">
         <div className="flex items-center justify-between">
             <h6 className="text-primary font-[700] text-[21px]">My Saved Items</h6>
             <p className="text-primary text-[12px] font-[500] cursor-pointer underline"> clear all </p>
@@ -158,13 +176,23 @@ return <main className="container flex flex-col gap-5 md:py-10 lg:py-0">
 <div className="flex flex-col gap-4">
     
         {savedItems?.map((item,index)=>{
-            return <div className="p-4  rounded-lg bg-active border border-savedBorder">
-                <div className="flex items-center justify-between"> {item.stillAVailable? <button className="px-2 py-1 rounded-[24px] text-primary bg-white font-[400]">still available </button>:<button>out of stock</button>} <span className="p-1 rounded-full bg-white"> {item.icon} </span> </div>
+            return <div key={index} className="p-4    rounded-lg bg-active border border-savedBorder">
+                <div className="flex items-center justify-between"> {item.stillAVailable? <button className={`${availableStyle} text-primary`}>Still Available </button>:<button className={`${availableStyle} text-red`}>Out of Stock</button>} <span className="p-1 rounded-full bg-white"> {item.icon} </span> </div>
                 
-                <div className="mt-4">
-                    <Image src={item.img} alt={`alaba market ${item.name}`} width={100} height={100} className="rounded-[8px] h-[120px] w-[120px]" />
+                <div className="flex my-4 items-center gap-4 w-full">
+                    <Image src={item.img} alt={`alaba market ${item.name}`} width={100} height={100} className="rounded-[8px] md:h-[110px] md:w-[110px]" />
+      <div className="flex-1 flex flex-col gap-4"> 
+                       <div className="flex flex-col gap-1">
+                         <h5 className="text-primary text-[15px] font-[600] md:text-[27px]"> {item.name} </h5>
+                        <p className="text-[#616A8C] text-[500]">  { " ₦ " +item.price.toLocaleString()} </p>
+                        </div>
+                <div className="hidden lg:flex items-center justify-between  w-full"> <span className="flex gap-1 items-center text-primary font-[14px]"> {item.locationIcon} {item.location }</span> <button className="text-primary border border-primary text-[11px] px-6 py-2 rounded font-[400]"> Chat seller  </button> </div>
 
                     </div>
+                    </div>
+                <div className="flex items-center justify-between  w-full lg:hidden"> <span className="flex gap-1 items-center text-primary font-[14px] "> {item.locationIcon} {item.location }</span> <button className="text-primary border border-primary text-[11px] px-6 py-2 rounded font-[400]"> Chat seller  </button> </div>
+
+              
                 
                  </div>
         })}

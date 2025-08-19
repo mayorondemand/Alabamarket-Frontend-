@@ -89,6 +89,7 @@ const Recommended = () => {
 
        <div className="flex items-center gap-4 ">  <div  onClick={(()=>{
     setLinear(false)
+
    })} className="bg-collpse h-fit  p-3  rounded-full cursor-pointer ">
 
    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -96,6 +97,9 @@ const Recommended = () => {
 </svg></div>
          <div  onClick={(()=>{
     setLinear(true)
+
+        console.log('hello world1')
+
    })} className="bg-collpse h-fit  p-3  rounded-full cursor-pointer">
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M3 21H7.675V16.325H3V21ZM9.675 21H14.325V16.325H9.675V21ZM16.325 21H21V16.325H16.325V21ZM3 14.325H7.675V9.675H3V14.325ZM9.675 14.325H14.325V9.675H9.675V14.325ZM16.325 14.325H21V9.675H16.325V14.325ZM3 7.675H7.675V3H3V7.675ZM9.675 7.675H14.325V3H9.675V7.675ZM16.325 7.675H21V3H16.325V7.675Z" fill="#172556"/>
@@ -186,12 +190,12 @@ const Recommended = () => {
 
           </div>
 
-         <div className="px-3 py-4 flex flex-col gap-4 md:col-span-4 w-full "> <div className={`flex flex-col  gap-3   md:${linear?'flex-row md:items-center md:justify-between':' flex-col md:flex-row md:items-center md:justify-between'}`}> 
+         <div className="px-3 py-4 flex flex-col gap-4 md:col-span-4 w-full"> <div className={`flex flex-col  gap-3   md:${linear?'flex-row md:items-center md:justify-between lg:flex-col lg:items-start xl:flex-ro':' flex-col md:flex-row md:items-center md:justify-between'}`}> 
       <h3 className="text-[27px] font-semibold leading-[110%] text-primary">
   { "₦"+item.price.toLocaleString()} </h3>
 
 
-{item.fixed?     <span className="text-sm text-description min-h-5"> {`(fixed price)`} </span>:<span className="text-sm text-description min-h-5"> {`(Negotiable)`}   </span>
+{item.fixed?     <span className="text-sm text-description min-h-5 "> {`(Fixed Price)`} </span>:<span className="text-sm text-description min-h-5"> {`(Negotiable)`}   </span>
 }
           </div>
 

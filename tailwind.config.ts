@@ -35,7 +35,8 @@ module.exports = {
     borderChat:"#E3E4E5",
   star:"#7C6100",
   reviewRangeBg:'#F8F7F7',
-  savedBorder:"#8B9BD5"
+  savedBorder:"#8B9BD5",
+  activeChat:"#D5DBF6"
   
 
     

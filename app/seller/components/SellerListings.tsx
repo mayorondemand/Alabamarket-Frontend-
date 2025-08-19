@@ -6,7 +6,7 @@ import Link from 'next/link'
 // import SearchPage from '@/app/components/Buyers/Search'
 import { useState,  } from 'react'
 // import Products from '@/app/components/Buyers/Products'
-import PriceFilter from '@/app/components/Buyers/PriceFilter'
+// import PriceFilter from '@/app/components/Buyers/PriceFilter'
 import SellerProducts from './SellerProducts'
 import Filter from './Filter'
 function SellerListing() {
@@ -182,7 +182,6 @@ const options=[{name:'Most recent'},{name:"Earliest"}]
 
 {/* Desktop Sidebar xl and above) */}
 <div className="bg-categoryBg xl:col-span-1 lg:sticky top-20 py-2 lg:px-4 xl:bg-filterBg rounded-md h-fit w-full xl:px-1">
-  {/* <PriceFilter setShowReport={ setShowReport} /> */}
   <Filter /> 
 </div>
 
