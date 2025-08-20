@@ -38,7 +38,8 @@ module.exports = {
   savedBorder:"#8B9BD5",
   activeChat:"#D5DBF6",
   sent:"#E0E3F0",
-  received:"#FEFEFE"
+  received:"#FEFEFE",
+  emojiBg:"#EFEEEE"
   
 
     

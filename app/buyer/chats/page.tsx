@@ -24,6 +24,7 @@ export type ChatData = {
   lastTime: string;
   unread?: number;
   messages: Message[];
+  online?:true|false,
 };
 
 const initialData: ChatData[] = [
@@ -33,7 +34,9 @@ const initialData: ChatData[] = [
     price: "₦540,000",
     product: "Buchymix 7L Air Fryer",
     verified: true,
+     online:true,
     lastTime: "2 hrs ago",
+    unread:1,
     messages: [
        {
         type: "system",
@@ -87,6 +90,8 @@ const initialData: ChatData[] = [
     price: "₦520,000",
     product: "Buchymix 7L Air Fryer",
     verified: false,
+         online:true,
+
     lastTime: "2 days ago",
     messages: [
       { type: "received", text: "Good morning! The air fryer is ready for pickup." },

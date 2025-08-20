@@ -20,6 +20,7 @@ type ChatData = {
   lastTime: string;
   unread?: number;
   messages: Message[];
+  online?:true|false
 };
 
 interface ChatListProps {
@@ -47,25 +48,53 @@ const ChatList: React.FC<ChatListProps> = ({ initialData, onChatSelect }) => {
                 className="rounded-full object-cover"
               />
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-[400] text-primary">
-                {chat.vendor}
+            <div className="flex-1 min-w-0 h-fit">
+              <p className="text-[11px] font-[400] text-primary mb-0">
+                {chat.vendor} 
               </p>
+                                        <div className="flex items-center gap-2 justify-between  w-full">
+
               <p className="text-[14px] font-[600] text-primary truncate">
                 {chat.product}
               </p>
-              <p className="text-[11px] font-[400] text-grey truncate">
+
+             
+              {chat.online? 
+              <div className="flex items-center gap-1"> <span className="h-2 w-2 rounded-full bg-green-500"></span>  <span className="text-[11px] font-[400] text-grey truncate">online</span> 
+              </div>
+               : 
+                <div className="flex items-center gap-1"> <span className="h-2 w-2 rounded-full bg-grey"></span>  <span className="text-[11px] font-[400] text-grey truncate">{chat.lastTime}</span> 
+              </div>
+            //    <span className="text-[11px] font-[400] text-grey truncate"> {chat.lastTime} </span> 
+               
+               }
+              </div>
+                          <div className="flex items-center gap-2 justify-between  w-full">
+
+              <p className="text-[11px] font-[400] text-grey truncate line-clamp-1">
                 {lastMessage}
               </p>
+              {chat.unread ? (
+                // <span className="bg-primary text-xs text-white text-center font-[400] p-1 h-fit   rounded-full">
+                //   {chat.unread}
+                // </span>
+                <span className="bg-primary text-xs text-white flex items-center justify-center font-[400] w-5 h-5 rounded-full">
+  {chat.unread}
+</span>
+
+              ) : null}
+
+              </div>
             </div>
-            <div className="flex flex-col items-end">
+            {/* <div className="flex flex-col items-end">
               <span className="text-xs text-gray-400">{chat.lastTime}</span>
               {chat.unread ? (
                 <span className="mt-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                   {chat.unread}
                 </span>
               ) : null}
-            </div>
+              
+            </div> */}
           </div>
         );
       })}
