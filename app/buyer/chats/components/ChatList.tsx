@@ -75,9 +75,7 @@ const ChatList: React.FC<ChatListProps> = ({ initialData, onChatSelect }) => {
                 {lastMessage}
               </p>
               {chat.unread ? (
-                // <span className="bg-primary text-xs text-white text-center font-[400] p-1 h-fit   rounded-full">
-                //   {chat.unread}
-                // </span>
+                
                 <span className="bg-primary text-xs text-white flex items-center justify-center font-[400] w-5 h-5 rounded-full">
   {chat.unread}
 </span>

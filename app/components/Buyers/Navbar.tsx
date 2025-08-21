@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { MapPin, Heart, User, ScanSearch, Search,Bell,MessageSquare, } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
+import LogoutPopUp from '../LogoutPopUp';
 
 const Navbar = () => {
 const [searchValue,setSearchValue]=useState('')
@@ -41,6 +41,41 @@ const IconLink = ({
   </Link>
 );
 const [showPopUp,setShowPopUp]=useState(false)
+const [showLogout,setShowLogout]=useState(false)
+
+const routes=()=>{
+  return     <div className="flex flex-col items-start justify-start gap-[20px] text-sm" onClick={(()=>{
+            setShowPopUp(false);
+
+  })}>
+
+    <Link href={`/buyer/saved`} className='flex gap-2 items-center' > 
+<div className='bg-[#EFEEEE] p-2 rounded-full'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 29 28" fill="none">
+  <path d="M8.82487 4.66602C5.28112 4.66602 2.4082 7.53893 2.4082 11.0827C2.4082 17.4993 9.99154 23.3327 14.0749 24.6895C18.1582 23.3327 25.7415 17.4993 25.7415 11.0827C25.7415 7.53893 22.8686 4.66602 19.3249 4.66602C17.1549 4.66602 15.2357 5.74343 14.0749 7.39252C13.4831 6.54983 12.697 5.86209 11.7832 5.3875C10.8693 4.91291 9.8546 4.66543 8.82487 4.66602Z" fill="#172556" stroke="#172556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+    
+                     <span className='text-[14px] font-400 text-primary'>Saved Items</span>
+
+     </Link>
+  
+    <Link href={`/buyer/notifications`} className='flex gap-2 items-center' > 
+    <div className='bg-[#EFEEEE] p-2 rounded-full'>
+   
+       <Bell size={20} className="fill-primary"  />
+       </div>
+                     <span className='text-[14px] font-400 text-primary'>Notifications</span>
+
+     </Link>
+<Link href={`/buyer/chats`} className='flex gap-2 items-center' > 
+    <div className='bg-[#EFEEEE] p-2 rounded-full'>
+   
+     <MessageSquare size={20} className="fill-primary" />
+       </div>
+                     <span className='text-[14px] font-400 text-primary'>Chat inbox </span>
+
+     </Link>
+  </div>
+}
   return (
    <> 
    {/* desktop navbar */}
@@ -140,7 +175,7 @@ const [showPopUp,setShowPopUp]=useState(false)
 {!isAuthenticated?<div className="flex items-center gap-[24px] text-sm">
 
   <div className='bg-[#EFEEEE] p-2 rounded-full'>
-   <Link href={`/saved`}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill="none">
+   <Link href={`/buyer/saved`}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 25 24" fill="none">
   <path d="M20.7048 15.9989C20.627 15.9052 20.5506 15.8114 20.4756 15.7209C19.4443 14.4736 18.8204 13.7208 18.8204 10.1897C18.8204 8.36156 18.3831 6.86156 17.5211 5.73656C16.8854 4.90547 16.0262 4.275 14.8937 3.80906C14.8791 3.80096 14.8661 3.79032 14.8553 3.77766C14.4479 2.41359 13.3333 1.5 12.0761 1.5C10.8189 1.5 9.70466 2.41359 9.29732 3.77625C9.28646 3.78847 9.27363 3.79877 9.25935 3.80672C6.61654 4.89469 5.33216 6.98203 5.33216 10.1883C5.33216 13.7208 4.70919 14.4736 3.677 15.7195C3.602 15.81 3.5256 15.9019 3.44779 15.9975C3.24679 16.2399 3.11944 16.5348 3.08081 16.8473C3.04218 17.1598 3.09389 17.4769 3.22982 17.7609C3.51904 18.3703 4.13544 18.7486 4.83904 18.7486H19.3183C20.0186 18.7486 20.6308 18.3708 20.9209 17.7642C21.0574 17.4801 21.1096 17.1628 21.0713 16.8499C21.033 16.537 20.9058 16.2417 20.7048 15.9989ZM12.0761 22.5C12.7534 22.4995 13.418 22.3156 13.9993 21.9679C14.5806 21.6202 15.057 21.1217 15.3779 20.5252C15.3931 20.4966 15.4005 20.4646 15.3996 20.4322C15.3987 20.3999 15.3895 20.3684 15.3728 20.3407C15.3561 20.313 15.3325 20.2901 15.3043 20.2742C15.2761 20.2583 15.2443 20.25 15.212 20.25H8.94107C8.90869 20.2499 8.87683 20.2582 8.8486 20.274C8.82037 20.2899 8.79672 20.3128 8.77997 20.3405C8.76321 20.3682 8.75392 20.3997 8.75299 20.4321C8.75206 20.4645 8.75952 20.4965 8.77466 20.5252C9.09554 21.1216 9.57184 21.6201 10.1531 21.9678C10.7343 22.3155 11.3988 22.4994 12.0761 22.5Z" fill="#172556"/>
 </svg></Link>
   </div>
@@ -181,7 +216,10 @@ const [showPopUp,setShowPopUp]=useState(false)
     </nav>
 
     
-<div className={`fixed font-Poppins inset-0 bg-[rgba(57,64,58,0.35)] backdrop-blur-[3.5px] flex items-end justify-center z-50    z-50 transition-all duration-300 ease-in-out 
+<div>
+   <LogoutPopUp showLogout={showLogout} setShowLogout={setShowLogout} />
+
+  <div className={`fixed font-Poppins inset-0 bg-[rgba(57,64,58,0.35)] backdrop-blur-[3.5px] flex items-end justify-center z-50    z-50 transition-all duration-300 ease-in-out 
 
  transform lg:hidden ${
     showPopUp ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-y-full opacity-0 pointer-events-none'
@@ -192,7 +230,7 @@ const [showPopUp,setShowPopUp]=useState(false)
     <div className='flex flex-col gap-[50px]'>
       <div className='flex items-top justify-between'>
       <div className='flex items-top gap-[15px]'>  <Image alt='username' className='h-[64px] w-[64px] aspect-square' src={'/eze.png'} height={100} width={100}/>  <div className='flex flex-col gap-[6px]'> <h4 className='class="text-primary font-Poppins text-[21px] font-semibold leading-[150%]"'>Soporuchi Eze</h4> <p className="text-primary font-Poppins text-[14px] font-normal leading-[20px]"
->soporuchi45@gmail.com</p> <Link href={`/user`} className='text-[#172556] mt-[7px] font-Poppins text-[14px] font-semibold leading-[150%] underline
+>soporuchi45@gmail.com</p> <Link href={`/buyer`} className='text-[#172556] mt-[7px] font-Poppins text-[14px] font-semibold leading-[150%] underline
 '>View profile</Link> </div> </div>
       <div className='cursor-pointer' onClick={() => {
         setShowPopUp(false);
@@ -215,57 +253,35 @@ const [showPopUp,setShowPopUp]=useState(false)
       Sell now
     </button>
 
-    <div className="flex flex-col items-start justify-start gap-[20px] text-sm">
 
   
-<Link href={`/saved`} className='flex gap-2 items-center' > 
-<div className='bg-[#EFEEEE] p-2 rounded-full'><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 29 28" fill="none">
-  <path d="M8.82487 4.66602C5.28112 4.66602 2.4082 7.53893 2.4082 11.0827C2.4082 17.4993 9.99154 23.3327 14.0749 24.6895C18.1582 23.3327 25.7415 17.4993 25.7415 11.0827C25.7415 7.53893 22.8686 4.66602 19.3249 4.66602C17.1549 4.66602 15.2357 5.74343 14.0749 7.39252C13.4831 6.54983 12.697 5.86209 11.7832 5.3875C10.8693 4.91291 9.8546 4.66543 8.82487 4.66602Z" fill="#172556" stroke="#172556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></div>
-    
-                     <span className='text-[14px] font-400 text-primary'>Saved Items</span>
-
-     </Link>
-  
-    <Link href={`/notifications`} className='flex gap-2 items-center' > 
-    <div className='bg-[#EFEEEE] p-2 rounded-full'>
-   
-       <Bell size={20} className="fill-primary"  />
-       </div>
-                     <span className='text-[14px] font-400 text-primary'>Notifications</span>
-
-     </Link>
-<Link href={`/messages`} className='flex gap-2 items-center' > 
-    <div className='bg-[#EFEEEE] p-2 rounded-full'>
-   
-     <MessageSquare size={20} className="fill-primary" />
-       </div>
-                     <span className='text-[14px] font-400 text-primary'>Chat inbox </span>
-
-     </Link>
-  
-
+{/* mobile menu here */}
+{routes()}
  
       
     
 
   
-</div>
     </div>
 
 
    
     
 
-<Link href={`/saved`} className='flex gap-2 items-center' > 
+<div className='flex gap-2 items-center' > 
 <div className='bg-[#EFEEEE] p-2 rounded-full'> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C5.20435 2 4.44129 2.31607 3.87868 2.87868C3.31607 3.44129 3 4.20435 3 5V19C3 19.7956 3.31607 20.5587 3.87868 21.1213C4.44129 21.6839 5.20435 22 6 22H12C12.7956 22 13.5587 21.6839 14.1213 21.1213C14.6839 20.5587 15 19.7956 15 19V5C15 4.20435 14.6839 3.44129 14.1213 2.87868C13.5587 2.31607 12.7956 2 12 2H6ZM16.293 7.293C16.4805 7.10553 16.7348 7.00021 17 7.00021C17.2652 7.00021 17.5195 7.10553 17.707 7.293L21.707 11.293C21.8945 11.4805 21.9998 11.7348 21.9998 12C21.9998 12.2652 21.8945 12.5195 21.707 12.707L17.707 16.707C17.5184 16.8892 17.2658 16.99 17.0036 16.9877C16.7414 16.9854 16.4906 16.8802 16.3052 16.6948C16.1198 16.5094 16.0146 16.2586 16.0123 15.9964C16.01 15.7342 16.1108 15.4816 16.293 15.293L18.586 13H10C9.73478 13 9.48043 12.8946 9.29289 12.7071C9.10536 12.5196 9 12.2652 9 12C9 11.7348 9.10536 11.4804 9.29289 11.2929C9.48043 11.1054 9.73478 11 10 11H18.586L16.293 8.707C16.1055 8.51947 16.0002 8.26516 16.0002 8C16.0002 7.73484 16.1055 7.48053 16.293 7.293Z" fill="#E30808"/>
 </svg></div>
     
-                     <span className='text-[14px] font-400 text-red'>Logout</span>
+                     <span className='text-[14px] font-400 text-red' onClick={(()=>{
+                        setShowPopUp(false)
+                      setShowLogout(true)
+                    
+                     })}>Logout</span>
 
-     </Link>
+     </div>
     </div>
+</div>
 </div>
 
     </>

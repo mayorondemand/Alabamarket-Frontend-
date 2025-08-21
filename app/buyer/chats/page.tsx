@@ -38,12 +38,7 @@ const initialData: ChatData[] = [
     lastTime: "2 hrs ago",
     unread:1,
     messages: [
-       {
-        type: "system",
-        text:
-          "Please avoid sharing personal or financial details here. Use clear questions and only deal with verified sellers.",
-        time: "April 5, 2024",
-      },
+      
       { type: "sent", text: "Hi, is this item still available?" },
       {
         type: "received",

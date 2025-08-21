@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 const footerSections = [
   {
     title: 'Quick links',
-    links: ['Home', 'Categories', 'Search', 'Saved Items', 'My Profile'],
+    links: ['Home', '/Categories', '/search', 'Saved Items', 'My Profile'],
   },
   {
     title: 'Company Info',
