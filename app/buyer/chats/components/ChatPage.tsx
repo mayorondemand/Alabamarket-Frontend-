@@ -194,7 +194,7 @@ console.log(selectedChat)
       </div>
 
       {/* Input Area */}
-      <div className="px-4 flex gap-2 items-center shadow border-t border-sent bg-white py-6">
+      <div className="px-4 top- left-0 right-0 bottom-0 flex gap-2 items-center shadow border-t border-sent bg-white py-6">
         <div className=" w-fit flex justify-start gap-3 items-center">
         <div className="flex items-center gap-3">
       {actions.slice(0,2).map((action, index) => (
