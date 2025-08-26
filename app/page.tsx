@@ -8,7 +8,7 @@ import { Suspense } from "react"
 export default function Home() {
   return (
     <main >
-<section className="container flex flex-col gap-14 md:py-16 ">
+<section className="container flex flex-col gap-14 md:pt-16 ">
   <Suspense
         fallback={
           <div className="flex items-center justify-center min-h-screen">

@@ -9,8 +9,7 @@ import Link from 'next/link';
 import { useState, useCallback } from 'react';
 import { ArrowLeft, CheckCircle, MessageCircle,MessageSquareText, Phone, AlertCircle } from 'lucide-react';
 import ReviewCard from '../categories/[name]/[productdetails]/components/Reviews';
-// import SellerListing from './components/SellerListings';
-import SellerListing from '../sellerprofile/components/SellerListings';
+import SellerListing from './components/SellerListings';
 import VideoCallPopUp from '../categories/[name]/[productdetails]/components/VideoCallPopUp';
 import Report from '../categories/[name]/[productdetails]/components/Report';
 type Product = {
@@ -45,7 +44,7 @@ const Page = () => {
 const [showPopUp,setShowPopUp]=useState(false)
 const [showReport,setShowReport]=useState(false)
   return (
-    <div className="container flex flex-col gap-4 md:py-10">
+    <div className="container flex flex-col gap-4 ">
       <VideoCallPopUp showPopUp={showPopUp} setShowPopUp={setShowPopUp}/>
       <Report  showReport={showReport} setShowReport={setShowReport}/>
 <div className="flex items-center">
@@ -112,7 +111,7 @@ const [showReport,setShowReport]=useState(false)
 <div>
   <p className='text-[17px] font-[400 text-primary'> {sellerInfo.description} </p>
 </div>
-            <div className="flex flex-col gap-4 md:flex-row mb:gap-8">
+            {/* <div className="flex flex-col gap-4 md:flex-row mb:gap-8">
               <button onClick={(()=>{
             setShowPopUp(true)
            })} className="py-[12px] text-[17px] wift rounded-[8px] font-500 w-full bg-primary text-white flex items-center justify-center text-center gap-2">
@@ -126,7 +125,7 @@ const [showReport,setShowReport]=useState(false)
               </button>
               
 
-            </div>
+            </div> */}
           </div>
       </div>
 

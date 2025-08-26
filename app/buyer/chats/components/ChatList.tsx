@@ -27,17 +27,20 @@ interface ChatListProps {
   initialData: ChatData[];
   onChatSelect: (chat: ChatData) => void; 
 }
-
+// let text='hi'
 const ChatList: React.FC<ChatListProps> = ({ initialData, onChatSelect }) => {
   return (
     <div className="bg-[#F5F6FC] rounded-3xl h-full">
+        {/* <button onClick={(()=>{
+            navigator.clipboard.writeText(text)
+        })}> {text} </button> */}
       {initialData.map((chat, index) => {
         const lastMessage = chat.messages[chat.messages.length - 1]?.text;
 
         return (
           <div
             key={index}
-            className={`cursor-pointer flex items-center gap-3 py-4 px-4 border-b border-grey hover:bg-activeChat ${index==0?'rounded-tl-3xl rounded-tr-3xl bg-activeChat':'bg-transparent'}`}
+            className={`cursor-pointer flex items-center gap-3 py-4 px-4 border-b border-grey hover:bg-activeChat ${index==0?'rounded-tl-3xl rounded-tr-3xl bg-activeChat':'bg-neatBg'}`}
             onClick={() => onChatSelect(chat)} 
           >
             <div className="relative w-12 h-12 shrink-0">

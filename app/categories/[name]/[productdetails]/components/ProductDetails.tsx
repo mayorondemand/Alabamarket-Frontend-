@@ -147,7 +147,7 @@ const [showReport,setShowReport]=useState(false)
           {/* Seller Info */}
             
           <div className="bg-categoryBg p-4 rounded-xl w-full h-fit flex flex-col gap-6">
-           <Link href={`/profile`}>
+           <Link href={`/sellerprofile`}>
             <div className="flex items-center gap-[15px]">
               <Image
                 alt={`${product.name} seller`}

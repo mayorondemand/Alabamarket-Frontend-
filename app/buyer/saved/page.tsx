@@ -2,10 +2,8 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
-import Recommended from "@/app/seller/reviews/components/Recommended";
-import { it } from "node:test";
-import { styleText } from "util";
-import { availableParallelism } from "os";
+import Recommended from "@/app/sellerprofile/reviews/components/Recommended";
+
 type Message = {
   type: "system" | "sent" | "received";
   text: string;

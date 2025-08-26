@@ -41,7 +41,7 @@ return <main className="container flex flex-col gap-5 md:py-10 lg:py-0">
  {/* <div className="bg-categoryBg p-4 rounded-xl border h-fit w-full flex flex-col gap-6"> */}
    <div className="hidden md:block bg-categoryBg p-4 rounded-xl h-fit flex flex-col gap-8  w-full md:w-[350px]">
 
-           <Link href={`/seller`}>
+           <Link href={`/sellerprofile`}>
             <div className="flex items-center gap-[15px]">
               <Image
                 alt={`seller`}
@@ -73,7 +73,7 @@ return <main className="container flex flex-col gap-5 md:py-10 lg:py-0">
               <button className="py-[12px] text-[17px] rounded-[8px] font-500 w-full bg-white text-primary border border-primary flex items-center justify-center gap-2">
                 <Phone size={18}  fill='primary'/> Show contact
               </button> */}
-           <Link href={`/seller/reviews/createreview`}>
+           <Link href={`/sellerprofile/reviews/createreview`}>
               <button onClick={(()=>{
            })} className="py-[12px] text-[17px]  mt-3  rounded-[8px] font-500 w-full bg-primary text-white flex items-center justify-center text-center gap-2">
              Leave a review

@@ -251,11 +251,11 @@ const initialData: ChatData[] = [
 ];
 
 const Page = () => {
-  const [selectedChat, setSelectedChat] = useState<ChatData | null>(initialData[0]); // Default to first chat
+  const [selectedChat, setSelectedChat] = useState<ChatData | null>(initialData[0]); 
   const [showChatList, setShowChatList] = useState(true); // Toggle for mobile view
 
   return (
-    <main className="container flex flex-col gap-5   lg:py-0">
+     <main className="container flex flex-col gap-5  my-auto  h-full lg:py-0 lg:fixed ">
       {/* <div className="flex items-center">
         <Link
           href="/"
@@ -283,10 +283,11 @@ const Page = () => {
 
         {initialData.length > 0 ? (
         //   <section className="flex flex-col lg:flex-row gap-10 fixed left-0 right-0">
-        <section className="flex flex-col lg:flex-row gap-10 h-[600px] overflow-y-hidde   ">
+        <section className="flex flex-col lg:flex-row  h-[700px] overflow-y-hidde lg:gap-10 lg:h-[570px]   ">
             <div
-              className={`h-full overflow-y-scroll lg:flex-[2] xl:flex-[1.4]  ${showChatList ? "block" : "hidden lg:block"}`}
+              className={`h-full border-t border-b border-l border-grey border-1 rounded-3xl overflow-y-scroll  lg:flex-[1.4]  ${showChatList ? "block" : "hidden lg:block"}`}
             >
+                
               <ChatList
                 initialData={initialData}
                 onChatSelect={(chat) => {
@@ -295,14 +296,23 @@ const Page = () => {
                 }}
               />
             </div>
-            <div
-              className={`h-full   lg:flex-[4]   bg-filterBg rounded-3xl ${!showChatList ? "block" : "hidden lg:block"}`}
+           {/* <div> */}
+                     <button
+                          className="lg:hidden p-2 fixed z-10 mb-3 bg-neatBg w-fit rounded-full"
+                          onClick={() => setShowChatList(true)} 
+                        >
+                          <ArrowLeft size={20} className="text-primary" />
+                        </button>
+             <div
+              className={`h-full   lg:flex-[4]    p-3 rounded-3xl ${!showChatList ? "block" : "hidden lg:block"}`}
             >
+                {/* bg-filterBg  */}
               <ChatPage
                 selectedChat={selectedChat}
                 setShowChatList={setShowChatList}
               />
             </div>
+           {/* </div> */}
           </section>
         ) : (
           <div className="flex flex-col items-center justify-center">

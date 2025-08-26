@@ -30,19 +30,30 @@ import Navbar from "./components/Buyers/Navbar"
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth ">
-       <Navbar />
-          <NavbarWrapper>
-      <body className={`${poppins.variable}`} >
+//     <html lang="en" className="scroll-smooth ">
+//        <Navbar />
+//           <NavbarWrapper>
+//       <body className={`${poppins.variable}`} >
       
-            <div className="  py-6 mt-20 flex flex-col md:mt-10">
-{children}
-            </div>
+//             <div className="  py-6 mt-20 flex flex-col md:mt-10">
+// {children}
+//             </div>
       
       
-      </body>
-      </NavbarWrapper>
+//       </body>
+//       </NavbarWrapper>
+//       <Footer />
+//     </html>
+<html lang="en" className="scroll-smooth">
+  <body className={`${poppins.variable}`}>
+    <NavbarWrapper>
+      <Navbar />
+      <div className="py-6 mt-20 flex flex-col md:mt-10">
+        {children}
+      </div>
       <Footer />
-    </html>
+    </NavbarWrapper>
+  </body>
+</html>
   )
 }
