@@ -45,7 +45,7 @@ const Footer = () => {
   const shouldHideFooter = hideFooterRoutes.includes(pathname);
 
   return (
-    <footer className={`bg-primary text-white container py-14 mt-14 ${shouldHideFooter?'hidden':'' } `}>
+    <footer className={`bg-primary text-white container py-14 mt-10 ${shouldHideFooter?'hidden':'' } `}>
       {/* <div className="grid grid-cols-5  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div className='col-span-1'>
           <div className=" rounded-md inline-flex  mb-4">

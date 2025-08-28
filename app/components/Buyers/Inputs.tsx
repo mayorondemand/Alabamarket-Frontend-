@@ -14,10 +14,23 @@ const Input= () => {
 
   return (
    <section className='flex flex-col items-center justify-center'>
-     <form className="w-full max-w-4xl flex flex-col gap-4  p-4">
-    
+     <form className="w-full  flex flex-col gap-4  p-4">
+                        <h6 className="text-primary  font-[700] text-[21px]  md:text-[33px]"> Profile Settings    </h6>
+ <div className='flex gap-4 items-center '>
+       <div className='h-fit'>
+         <div className='h-20 w-20 rounded-full bg-neatBg'>
+
+        </div>
+       </div>
+       <button
+        // type="submit"
+        className=" text-primary border border-primary bg-white px-4 py-2 rounded-md hover:bg-opacity-90 w-full md:w-fit"
+      >
+  Add photo 
+      </button>
+      </div>
       <div>
-        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
          Full name <span className="text-red-500 mr-1">*</span>
         </label>
         <input
@@ -33,7 +46,7 @@ const Input= () => {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-700">
         Email address   <span className="text-red-500 mr-1">*</span>
         </label>
         <input
@@ -49,7 +62,7 @@ const Input= () => {
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="phone" className="block text-sm font-medium mb-1 text-gray-700">
           Phone number <span className="text-red-500 mr-1">*</span>
         </label>
         <input
@@ -64,12 +77,20 @@ const Input= () => {
         />
       </div>
 
-      {/* <button
+      <div className='flex gap-2 items-center flex-col md:flex-row md:gap-4'>
+        <button
         type="submit"
-        className="mt-4 bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90"
+        className=" bg-primary text-white px-4 py-2 rounded-md hover:bg-opacity-90 w-full md:w-fit"
       >
-        Submit
-      </button> */}
+       Save changes 
+      </button>
+       <button
+        type="submit"
+        className=" text-primary border border-primary bg-white px-4 py-2 rounded-md hover:bg-opacity-90 w-full md:w-fit"
+      >
+  Change password  
+      </button>
+      </div>
     </form>
    </section>
   );
