@@ -15,7 +15,12 @@ const Input= () => {
   return (
    <section className='flex flex-col items-center justify-center'>
      <form className="w-full  flex flex-col gap-4  p-4">
-                        <h6 className="text-primary  font-[700] text-[21px]  md:text-[33px]"> Profile Settings    </h6>
+                       <div className='flex items-center justify-between'> <h6 className="text-primary  font-[700] text-[21px]  md:text-[33px]"> Profile Settings    </h6>
+                        <select name="buyer" id="buyer" className='bg-neatBg p-1 border-none rounded hidden md:block'>
+                          <option value="Buyer">Buyer</option>
+                                                    <option value="Seller">Seller</option>
+
+                        </select></div>
  <div className='flex gap-4 items-center '>
        <div className='h-fit'>
          <div className='h-20 w-20 rounded-full bg-neatBg'>

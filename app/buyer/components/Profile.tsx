@@ -1,6 +1,6 @@
 import Input from "@/app/components/Buyers/Inputs"
 
-const Profile=({label})=>{
+const Profile=({})=>{
 return <main>
 
    <Input />

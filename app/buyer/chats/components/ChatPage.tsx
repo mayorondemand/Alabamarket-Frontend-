@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ChatData,Message  } from "../page";
 import Link from "next/link";
 // Rename lucide-react's Image
-import { Image as ImageIcon,  Mic, Smile, Paperclip , Send, MessageSquareText,Phone,AlertCircle, createLucideIcon, ArrowLeft,CheckCircle, MessageCircle } from "lucide-react";
+import { Image as ImageIcon, PhoneCall, Mic, Smile, Paperclip , Send, MessageSquareText,Phone,AlertCircle, createLucideIcon, ArrowLeft,CheckCircle, MessageCircle } from "lucide-react";
 
 
 
@@ -19,6 +19,8 @@ interface ChatPageProps {
 
 const ChatPage: React.FC<ChatPageProps> = ({ selectedChat, setShowChatList }) => {
     const [message,setMessage]=useState('')
+    const [showContact,setShowContact]=useState(false)
+
 const actions = [
   {
     name: "emoji",
@@ -142,15 +144,65 @@ console.log(selectedChat)
             </div>
             <h4 className="text-primary font-[600] text-[11px] md:text-[17px]"> {selectedChat.price}  </h4>
              
-              <button  className="py-[6px] px-2 z-10 w-full text-[17px] rounded-[8px] font-500  bg-white text-primary border border-primary  hidden gap-2 md:w-fit md:flex items-center justify-center">
-                <MessageSquareText size={20}  /> Show contact 
-              </button>
-                           <a href={`tel:${+2349131114346}`} className="md:hidden">
+           
+             
 
-              <button  className="py-[6px] px-2 z-10 w-full text-[15px] rounded-[8px] font-[500]  bg-white text-primary border border-primary flex items-center justify-center  gap-2  md:text-[17px] ">
-                <MessageSquareText size={20}  /> Show contact 
-              </button>
-              </a>
+<div className="relative w-fit hidden md:block">
+  {/* Trigger button */}
+  <div
+    onClick={() => setShowContact(!showContact)}
+    className="cursor-pointer z-10 bg-white py-2 px-4 rounded-[8px] font-[500] border border-primary text-center flex items-center justify-center gap-2 w-52"
+  >
+    <span className="text-primary flex items-center gap-2">
+      <Phone size={18} fill="primary" />
+      Show contact
+    </span>
+    
+  </div>
+
+  {/* Dropdown content */}
+  {showContact && (
+    <div className="absolute left-0 mt-1 w-52 bg-white border border-primary rounded-lg shadow-md animate-fadeIn p-3">
+      <div className="text-primary font-[500] text-[15px]">+234 9131 11 4346</div>
+      <div className="flex justify-end mt-2">
+        <span className="bg-[#FEF3CC] px-3 py-1 rounded text-sm cursor-pointer">
+          Copy
+        </span>
+      </div>
+    </div>
+  )}
+</div>
+
+{/* Mobile dropdown (hidden on desktop) */}
+<div className="relative w-full md:hidden">
+  <div
+    onClick={() => setShowContact(!showContact)}
+    className="cursor-pointer z-10 bg-white py-[6px] px-2 w-full text-[15px] rounded-[8px] font-[500] border border-primary flex items-center justify-center gap-2"
+  >
+    <span className="text-primary flex items-center gap-2">
+      <Phone size={18} fill="primary"/>
+      Show contact
+    </span>
+   
+  </div>
+
+  {/* Dropdown content */}
+  {showContact && (
+    <div className="absolute left-0 mt-1 w-full bg-white border border-primary rounded-lg shadow-md animate-fadeIn">
+      <a
+        href="tel:+2349131114346"
+        className="flex items-center font-[500] gap-2 px-4 py-2 text-primary hover:bg-gray-50 rounded-lg"
+      >
+        +234 9131 11 4346
+      </a>
+    </div>
+  )}
+</div>
+
+
+
+
+
 
             </div>
       {/* Messages */}

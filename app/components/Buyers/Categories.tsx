@@ -49,13 +49,13 @@ export default function Categories() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <div>
-      <div className="grid grid-cols-3 gap-4  sm:grid-cols-3 md:gap-5 md:grid-cols-5  xl:grid-cols-9 ">
+    <div className='p-4 gap-4 bg-categoryBg rounded-lg'>
+      <div className="grid gap-8 grid-cols-3    sm:grid-cols-3 md: md:grid-cols-5  xl:grid-cols-9 ">
         {visibleCategories.map((cat, index) => (
           <Link
             key={index}
             href={`/search?name=${encodeURIComponent(cat.name)}`}
-            className="flex flex-col  rounded-lg items-center  pb-2 pt-4 text-center text-center bg-categoryBg md:mb-0 md:p-4"
+            className="flex flex-col   items-center    text-center text-center"
           >
             <div className="rounded-full overflow-hidden">
               <Image
@@ -64,7 +64,9 @@ export default function Categories() {
                 alt={cat.name}
                 width={80}
                 height={80}
-                className="object-cover h-[55px] w-[55px] md:h-[100px] md:w-[100px]"
+                // className="object-cover h-[55px] w-[55px] md:h-[100px] md:w-[100px]"
+                                className="object-cover w-full"
+
               />
             </div>
             <p className="mt-2 text-sm text-primary font-medium">{cat.name}</p>

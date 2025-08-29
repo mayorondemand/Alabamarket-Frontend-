@@ -255,7 +255,7 @@ const Page = () => {
   const [showChatList, setShowChatList] = useState(true); // Toggle for mobile view
 
   return (
-     <main className="container flex flex-col gap-5  my-auto  h-full lg:py-0 lg:fixed ">
+     <main className="container fixd flex flex-col gap-5  my-auto  h-full lg:py-0 lg:fixe ">
       {/* <div className="flex items-center">
         <Link
           href="/"
@@ -285,7 +285,7 @@ const Page = () => {
         //   <section className="flex flex-col lg:flex-row gap-10 fixed left-0 right-0">
         <section className="flex flex-col lg:flex-row  h-[700px] overflow-y-hidde lg:gap-10 lg:h-[570px]   ">
             <div
-              className={`h-full border-t border-b border-l border-grey border-1 rounded-3xl overflow-y-scroll  lg:flex-[1.4]  ${showChatList ? "block" : "hidden lg:block"}`}
+              className={`h-full border-t border-b border-l border-grey border-1 rounded-3xl overflow-y-scroll  lg:flex-[2] xl:flex-[1.4]  ${showChatList ? "block" : "hidden lg:block"} md:mt-10 lg:mt-0`}
             >
                 
               <ChatList
@@ -297,12 +297,15 @@ const Page = () => {
               />
             </div>
            {/* <div> */}
-                     <button
-                          className="lg:hidden p-2 fixed z-10 mb-3 bg-neatBg w-fit rounded-full"
-                          onClick={() => setShowChatList(true)} 
-                        >
-                          <ArrowLeft size={20} className="text-primary" />
+                    {!showChatList&& <div className="flex gap-2 mb-3 items-center md:my-8 lg:hidden"                           onClick={() => setShowChatList(true)} 
+>
+                      <button
+                          className=" p-1 items-center  fixe z-10 mb- bg-neatBg w-fit rounded-full"
+                        >                                                  <ArrowLeft size={16} className="text-primary" /> 
+
                         </button>
+Back to contact 
+                      </div>}
              <div
               className={`h-full   lg:flex-[4]    p-3 rounded-3xl ${!showChatList ? "block" : "hidden lg:block"}`}
             >
@@ -368,6 +371,8 @@ const Page = () => {
         )}
       </div>
     </main>
+
+
   );
 };
 
