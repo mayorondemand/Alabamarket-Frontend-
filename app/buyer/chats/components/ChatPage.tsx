@@ -4,22 +4,21 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChatData,Message  } from "../page";
-import Link from "next/link";
-// Rename lucide-react's Image
-import { Image as ImageIcon, PhoneCall, Mic, Smile, Paperclip , Send, MessageSquareText,Phone,AlertCircle, createLucideIcon, ArrowLeft,CheckCircle, MessageCircle } from "lucide-react";
-
-
-
+import Report from "@/app/categories/[name]/[productdetails]/components/Report";
+import { Image as ImageIcon, Mic, Smile, Paperclip , Send,Phone } from "lucide-react";
+import { FaWhatsapp } from 'react-icons/fa';
 import VideoCallPopUp from "@/app/categories/[name]/[productdetails]/components/VideoCallPopUp";
 interface ChatPageProps {
   selectedChat: ChatData | null;
-  setShowChatList: (show: boolean) => void; // To toggle back to ChatList on mobile
+  setShowChatList: (show: boolean) => void; 
 }
 
 
 const ChatPage: React.FC<ChatPageProps> = ({ selectedChat, setShowChatList }) => {
     const [message,setMessage]=useState('')
     const [showContact,setShowContact]=useState(false)
+        const [showReportBtn,setShowReportBtn]=useState(false)
+
 
 const actions = [
   {
@@ -57,8 +56,18 @@ const actions = [
       }
 
 const [showPopUp,setShowPopUp]=useState(false)
+const [showReport,setShowReport]=useState(false)
+
 console.log(selectedChat)
     const verifiedSeller=true
+
+    let number={
+      whatsapp:"913 111 4346",
+      phone:'815 772 2944'
+    }
+    // <a href={`https://wa.me/234${number.whatsapp.replace(/\s+/g, '')}`}>
+
+    const whatsapp =number.whatsapp.replace(/\s+/g, '');
   if (!selectedChat) {
     return (
       <div className="flex flex-col items-center justify-center h-full p-6 bg-filterBg">
@@ -71,10 +80,11 @@ console.log(selectedChat)
     <div className="flex flex-col relative  h-full bg-filterBg  rounded-3xl relative ">
     
       <VideoCallPopUp showPopUp={showPopUp} setShowPopUp={setShowPopUp}/>
+      <Report  setShowReport={setShowReport} showReport={showReport}/>
 
           <div className="pb-3 px-4 flex items-center justify-between bg-white shadow-md round-tl-xl rounded-tr-3xl">
 
-              <div className="flex items-center   gap-[10px]">
+              <div className="flex items-center h-fit   gap-[10px]">
                  
               <Image
                 alt={`${selectedChat.vendor} seller`}
@@ -95,15 +105,10 @@ console.log(selectedChat)
 </svg> Verified Seller
                     </span>
                   )}
-                   {selectedChat.online? 
-              <div className="flex items-center gap-1"> <span className="h-2 w-2 rounded-full bg-green-500"></span>  <span className="text-[11px] font-[400] text-grey h-fit">online</span> 
+                   {/* {selectedChat.online?  */}
+              <div className="flex items-center gap-1"> <span className="h-2 w-2 rounded-full bg-green-500"></span>  <span className="text-[11px] font-[400] text-grey h-fit"> {selectedChat.online?'online':`${selectedChat.lastTime}`} </span> 
               </div>
-               : 
-                <div className="flex items-center gap-1"> <span className="h-2 w-2 rounded-full bg-grey"></span>  <span className="text-[11px] font-[400] text-grey ">{selectedChat.lastTime}</span> 
-              </div>
-            //    <span className="text-[11px] font-[400] text-grey truncate"> {chat.lastTime} </span> 
-               
-               }
+              
                 </div>
               </div>
             </div>
@@ -117,11 +122,22 @@ console.log(selectedChat)
   <path d="M5 5C3.355 5 2 6.355 2 8V16C2 17.645 3.355 19 5 19H13C14.645 19 16 17.645 16 16V8C16 6.355 14.645 5 13 5H5Z" fill="#172556"/>
 </svg>
 </span>
-  <span className="p-1 cursor-pointer rounded-full bg-received"> 
+ <div onClick={(()=>{
+  setShowReportBtn(!showReportBtn)
+ })} className="p-1 relative cursor-pointer rounded-full bg-received"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M10.5 6C10.5 5.79 10.5 5.6865 10.512 5.5995C10.5502 5.32456 10.677 5.0696 10.8733 4.87332C11.0696 4.67704 11.3246 4.55018 11.5995 4.512C11.685 4.5 11.79 4.5 12 4.5C12.21 4.5 12.3135 4.5 12.4005 4.512C12.6754 4.55018 12.9304 4.67704 13.1267 4.87332C13.323 5.0696 13.4498 5.32456 13.488 5.5995C13.5 5.685 13.5 5.79 13.5 6C13.5 6.21 13.5 6.3135 13.488 6.4005C13.4498 6.67544 13.323 6.9304 13.1267 7.12668C12.9304 7.32296 12.6754 7.44982 12.4005 7.488C12.315 7.5 12.21 7.5 12 7.5C11.79 7.5 11.6865 7.5 11.5995 7.488C11.3246 7.44982 11.0696 7.32296 10.8733 7.12668C10.677 6.9304 10.5502 6.67544 10.512 6.4005C10.5 6.315 10.5 6.21 10.5 6ZM10.5 12C10.5 11.79 10.5 11.6865 10.512 11.5995C10.5502 11.3246 10.677 11.0696 10.8733 10.8733C11.0696 10.677 11.3246 10.5502 11.5995 10.512C11.685 10.5 11.79 10.5 12 10.5C12.21 10.5 12.3135 10.5 12.4005 10.512C12.6754 10.5502 12.9304 10.677 13.1267 10.8733C13.323 11.0696 13.4498 11.3246 13.488 11.5995C13.5 11.685 13.5 11.79 13.5 12C13.5 12.21 13.5 12.3135 13.488 12.4005C13.4498 12.6754 13.323 12.9304 13.1267 13.1267C12.9304 13.323 12.6754 13.4498 12.4005 13.488C12.315 13.5 12.21 13.5 12 13.5C11.79 13.5 11.6865 13.5 11.5995 13.488C11.3246 13.4498 11.0696 13.323 10.8733 13.1267C10.677 12.9304 10.5502 12.6754 10.512 12.4005C10.5 12.315 10.5 12.21 10.5 12ZM10.5 18C10.5 17.7915 10.5 17.6865 10.512 17.5995C10.5504 17.3251 10.6772 17.0706 10.8731 16.8746C11.0691 16.6787 11.3236 16.5519 11.598 16.5135C11.6865 16.5015 11.79 16.5015 11.9985 16.5015C12.207 16.5015 12.3135 16.5015 12.399 16.5135C12.6734 16.5519 12.9279 16.6787 13.1239 16.8746C13.3198 17.0706 13.4466 17.3251 13.485 17.5995C13.497 17.6865 13.497 17.7915 13.497 18C13.497 18.2085 13.497 18.3135 13.485 18.4005C13.4466 18.6749 13.3198 18.9294 13.1239 19.1254C12.9279 19.3213 12.6734 19.4481 12.399 19.4865C12.312 19.4985 12.207 19.4985 11.9985 19.4985C11.79 19.4985 11.685 19.4985 11.598 19.4865C11.3236 19.4481 11.0691 19.3213 10.8731 19.1254C10.6772 18.9294 10.5504 18.6749 10.512 18.4005C10.5 18.3135 10.5 18.2085 10.5 18Z" fill="#172556"/>
 </svg>
-</span>
+{showReportBtn&&
+<div className="py-1 px-2 bg-white border z-10 rounded absolute -top-[4px] right-[30px]">
+  <button onClick={(()=>{
+  setShowReport(true)
+  })}>report</button>
+</div>
+}
+</div>
+  
+ 
              </div>
           </div>
            <div className="fixd left-0 right-0 flex    flex-col  justify-between px-4 pt-2 gap-2 md:flex-row md:gap-4 md:items-center">
@@ -139,7 +155,6 @@ console.log(selectedChat)
                 <h4 className="text-primary font-[500] text-[11px] leading-[130%] md:text-[16px]">
                   Excel Home Electronics 
                 </h4>
-                {/* fixed left-0 right-0 bottom-0  */}
               </div>
             </div>
             <h4 className="text-primary font-[600] text-[11px] md:text-[17px]"> {selectedChat.price}  </h4>
@@ -162,12 +177,21 @@ console.log(selectedChat)
 
   {/* Dropdown content */}
   {showContact && (
-    <div className="absolute left-0 mt-1 w-52 bg-white border border-primary rounded-lg shadow-md animate-fadeIn p-3">
-      <div className="text-primary font-[500] text-[15px]">+234 9131 11 4346</div>
-      <div className="flex justify-end mt-2">
+    <div className="fixed flex flex-col gap-5 w-[205px]  bottom-50  bg-white border border-primary rounded-lg shadow-md animate-fadeIn p-3">
+    
+     <div className="flex items-center justify-between gap-2">  <div className="text-primary font-[500] text-[15px]">{number.phone}</div>
+      <div >
         <span className="bg-[#FEF3CC] px-3 py-1 rounded text-sm cursor-pointer">
           Copy
         </span>
+      </div> </div>
+       <div className="flex items-center justify-between gap-2">  <div className="text-primary font-[500] text-[15px]">{number.whatsapp}</div>
+    <a
+        target="_blank"
+        href={`https://wa.me/+234${whatsapp}`}
+  rel="noopener noreferrer"
+        className="flex items-center font-[500] gap-2 px-4 py-2 text-primary hover:bg-gray-50 rounded-lg"
+      > <FaWhatsapp size={20} className="cursor-pointer" fill="primary" />  </a>
       </div>
     </div>
   )}
@@ -188,13 +212,30 @@ console.log(selectedChat)
 
   {/* Dropdown content */}
   {showContact && (
-    <div className="absolute left-0 mt-1 w-full bg-white border border-primary rounded-lg shadow-md animate-fadeIn">
-      <a
+    <div className="absolute flex flex-col gap-5 p-3 left-0 mt-1 w-full z-10 bg-white border border-primary rounded-lg shadow-md animate-fadeIn">
+      {/*
+        +234 9131 11 4346
+    
+    </div> */}
+      <div className="flex items-center justify-between gap-2">  <div className="text-primary font-[500] text-[15px]">{number.phone}</div>
+      <div >
+        <a
         href="tel:+2349131114346"
         className="flex items-center font-[500] gap-2 px-4 py-2 text-primary hover:bg-gray-50 rounded-lg"
-      >
-        +234 9131 11 4346
-      </a>
+      > <Phone size={20} className="cursor-pointer" fill="primary" />  </a>
+
+      </div> </div>
+      
+       <div className="flex items-center justify-between gap-2">    <div className="text-primary font-[500] text-[15px]">{number.whatsapp}</div>
+            <a
+        target="_blank"
+        href={`https://wa.me/${whatsapp}`}
+  rel="noopener noreferrer"
+        className="flex items-center font-[500] gap-2 px-4 py-2 text-primary hover:bg-gray-50 rounded-lg"
+      > <FaWhatsapp size={20} className="cursor-pointer" fill="primary" />  </a>
+
+      </div>
+     
     </div>
   )}
 </div>

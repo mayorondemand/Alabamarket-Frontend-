@@ -27,6 +27,26 @@ export default function Home() {
 <RecommendedProducts />
 <UpsAndInverters />
 </section>
+{/* <section class="accordion">
+  <details>
+    <summary>Anthropodermic Bibliopegy</summary>
+    <div class="content">
+      <p>Visit M Shed to see a book bound in human skin, made from John Horwood, a convicted murderer hanged in 1821.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Christmas Steps</summary>
+    <div class="content">
+      <p>The Christmas Steps, built in 1669, were once a grim path for condemned prisoners heading to Gallows Acre.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Redcliffe Caves</summary>
+    <div class="content">
+      <p>These caves, used as prisons during the Napoleonic Wars, are hidden beneath Bristol’s red cliffs.</p>
+    </div>
+  </details>
+</section> */}
 
     </main>
   )

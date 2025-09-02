@@ -191,8 +191,8 @@ const RecommendedProducts = () => {
   { "₦"+item.price.toLocaleString()} </h3>
 
 
-{item.fixed?     <span className="text-sm text-description min-h-5"> {`(fixed price)`} </span>:<span className="text-sm text-description min-h-5"> {`(Negotiable)`}   </span>
-}
+<span className="text-sm text-description min-h-5"> {item.fixed?`Fixed Price`:`(Negotiable)`} </span>
+
           </div>
 
           <div > 

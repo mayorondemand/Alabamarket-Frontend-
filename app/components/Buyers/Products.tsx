@@ -114,7 +114,6 @@ const Products = () => {
                key={index}
                  href={`/categories/${encodeURIComponent(item.name)}/${`${item.name}`}`} 
 
-                // href={`/search?name=${encodeURIComponent(item.title)}`}
               > 
                <div  className={`border cursor-pointer border-description rounded-[12px] ${linear?``:`flex gap-1 md:items-center  md:grid-cols-5]`} lg:shrink-0 `}>
 
@@ -191,20 +190,17 @@ const Products = () => {
   { "₦"+item.price.toLocaleString()} </h3>
 
 
-{item.fixed?     <span className="text-sm text-description min-h-5"> {`(fixed price)`} </span>:<span className="text-sm text-description min-h-5"> {`(Negotiable)`}   </span>
-}
+
+<span className="text-sm text-description min-h-5"> {item.fixed?`Fixed Price`:`(Negotiable)`} </span>
           </div>
 
           <div > 
 
-{/* <h4 className="mb-0 text-name font-semibold"> */}
 <h4 className={`text-[21px] font-poppins font-medium leading-[110%] text-name mb-1  line-clamp-2 ${!linear?`min-h-[50px]`:`min-h-[50px]`}`}>
 {item.name}
 </h4>
 
-{/* <h4 className={`text-[21px] font-poppins font-medium leading-[110%] text-name mb-1 line-clamp-2 border ${!linear?``:`min-h-[50px]`}`}>
-{item.name}
-</h4> */}
+
      <span className={`text-sm text-description line-clamp-2  ${!linear?`min-h-[50px]`:``} `}>{item.description}  </span>
 
 

@@ -26,7 +26,7 @@ openGraph: {
 
 import Footer from "./components/Buyers/Footer"
 import Navbar from "./components/Buyers/Navbar"
-
+import ReactQueryProvider from "./providers/QueryProvider";
 
 export default function RootLayout({ children }) {
   return (
@@ -46,13 +46,17 @@ export default function RootLayout({ children }) {
 //     </html>
 <html lang="en" className="scroll-smooth">
   <body className={`${poppins.variable}`}>
+            <ReactQueryProvider>
+              
     <NavbarWrapper>
       <Navbar />
-      <div className="py-6 mt-20 flex flex-col md:mt-10">
+      <div className="py-6 mt-20 flex flex-col ">
         {children}
       </div>
       <Footer />
     </NavbarWrapper>
+            </ReactQueryProvider>
+
   </body>
 </html>
   )

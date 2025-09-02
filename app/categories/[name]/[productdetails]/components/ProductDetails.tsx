@@ -129,7 +129,7 @@ const [showReport,setShowReport]=useState(false)
           <div className="hidden md:flex flex-col gap-[30px] px-4 py-5 rounded-xl bg-categoryBg h-fit">
             <div className="flex w-fit flex-col gap-[6px]">
               <h4 className="text-primary text-[33px] font-[700]">₦{product.price.toLocaleString()}</h4>
-              {product.fixed ?                 <button className="text-primary py-[7px] px-[7px] w-fit rounded  bg-neatBg">Fixed</button>
+              {product.fixed ?                 <button className="text-primary py-[7px] px-[7px] w-fit rounded  bg-white">Fixed</button>
  : (
                 <button className="text-primary py-[7px] px-[7px] w-fit rounded  bg-white">Negotiable</button>
               )}

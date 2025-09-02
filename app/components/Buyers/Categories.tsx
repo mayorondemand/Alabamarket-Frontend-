@@ -49,7 +49,7 @@ export default function Categories() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   return (
-    <div className='p-4 gap-4 bg-categoryBg rounded-lg'>
+    <div className='p-4 gap-4 bg-filterBg rounded-lg'>
       <div className="grid gap-8 grid-cols-3    sm:grid-cols-3 md: md:grid-cols-5  xl:grid-cols-9 ">
         {visibleCategories.map((cat, index) => (
           <Link

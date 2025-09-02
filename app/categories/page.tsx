@@ -92,7 +92,7 @@ export default function Categories() {
         <SearchPage />
 
       {categories.map((cat, index) => (
-        <section key={index} className={`p-4 gap-4 bg-categoryBg rounded-lg  ${index==0?`mt-5`:`mt-5`}`}>
+        <section key={index} className={`p-4 gap-4 bg-filterBg rounded-lg  ${index==0?`mt-5`:`mt-5`}`}>
           {/* Header Row */}
           <div className="flex items-center justify-between mb-4">
             <h6 className="text-primary font-[600] text-[21px] md:text-[27px]">{cat.name}</h6>

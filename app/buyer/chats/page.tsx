@@ -255,7 +255,7 @@ const Page = () => {
   const [showChatList, setShowChatList] = useState(true); // Toggle for mobile view
 
   return (
-     <main className="container fixd flex flex-col gap-5  my-auto  h-full lg:py-0 lg:fixe ">
+     <main className="container items-center justify-center  relative flex flex-col gap-5     lg:py-0  ">
       {/* <div className="flex items-center">
         <Link
           href="/"
@@ -268,7 +268,7 @@ const Page = () => {
         </Link>
       </div> */}
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col w-full gap-8   h-[700px]  lg:h-[570px]    ">
         {/* <div>
           <h6 className="text-primary font-[700] text-[21px] mb-2 md:text-[33px]">
             Chat Inbox
@@ -283,9 +283,9 @@ const Page = () => {
 
         {initialData.length > 0 ? (
         //   <section className="flex flex-col lg:flex-row gap-10 fixed left-0 right-0">
-        <section className="flex flex-col lg:flex-row  h-[700px] overflow-y-hidde lg:gap-10 lg:h-[570px]   ">
+        <section className="flex  w-full flex-col lg:flex-row overflow-y-hidden lg:gap-10 ">
             <div
-              className={`h-full border-t border-b border-l border-grey border-1 rounded-3xl overflow-y-scroll  lg:flex-[2] xl:flex-[1.4]  ${showChatList ? "block" : "hidden lg:block"} md:mt-10 lg:mt-0`}
+              className={`h-ful border-t border-b border-l border-grey border-1 rounded-3xl overflow-y-scroll  lg:flex-[2] xl:flex-[1.4]  ${showChatList ? "block" : "hidden lg:block"} md:mt-10 lg:mt-0`}
             >
                 
               <ChatList

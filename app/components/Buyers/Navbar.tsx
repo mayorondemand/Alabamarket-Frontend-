@@ -6,10 +6,12 @@ import { MapPin, Heart, User, ScanSearch, Search,Bell,MessageSquare, } from 'luc
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import LogoutPopUp from '../LogoutPopUp';
-
+import { usePathname } from 'next/navigation';
 const Navbar = () => {
 const [searchValue,setSearchValue]=useState('')
 const router=useRouter()
+    const pathname = usePathname();
+
     const search=()=>{
 if(searchValue.trim()!=='')
 router.push(`/search?search=${searchValue}`)
@@ -42,7 +44,8 @@ const IconLink = ({
 );
 const [showPopUp,setShowPopUp]=useState(false)
 const [showLogout,setShowLogout]=useState(false)
-
+ const hideFooterRoutes = ["/auth/signup"];
+  const shouldHideFooter = hideFooterRoutes.includes(pathname);
 const routes=()=>{
   return     <div className="flex flex-col items-start justify-start gap-[20px] text-sm" onClick={(()=>{
             setShowPopUp(false);
@@ -79,7 +82,7 @@ const routes=()=>{
   return (
    <> 
    {/* desktop navbar */}
-   <nav className="fixed bg-primary py-6   left-0 right-0 top-0 z-50 backdrop-blur hidden lg:block">
+   <nav className={`fixed bg-primary py-6   left-0 right-0 top-0 z-50 backdrop-blur hidden lg:block ${shouldHideFooter?'hidden lg:hidden':'block'}`}>
       <div className="flex  items-center justify-between gap-4 px-10 xl:container">
         
         <div className="flex items-center gap-4">
@@ -146,10 +149,10 @@ const routes=()=>{
   )}
 
   <Link
-    href="/sell"
+    href={`${!isAuthenticated?'/auth/signup':'/auth/login'}`}
     className="bg-white text-primary font-medium px-8 py-3 rounded-md hover:opacity-90"
   >
-    Sell now
+   {`${!isAuthenticated?'signup':'login'}`}
   </Link>
 </div>
 

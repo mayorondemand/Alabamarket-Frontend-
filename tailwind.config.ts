@@ -39,7 +39,9 @@ module.exports = {
   activeChat:"#D5DBF6",
   sent:"#E0E3F0",
   received:"#FEFEFE",
-  emojiBg:"#EFEEEE"
+  emojiBg:"#EFEEEE",
+  verifying:"#D6DBEB",
+  verifyText:"ACB3CC",
   
 
     

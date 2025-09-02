@@ -6,16 +6,7 @@ import Link from 'next/link';
 import SearchPage from '@/app/components/Buyers/Search';
 
 import { useState } from 'react';
-// type Product = {
-//   img: string ;
-//   title: string;
-//   image: string;
-//   name: string;
-//   verifiedSeller?: boolean;
-//   fixed?: boolean;
-//   price: number;
-//   description?: string;
-// };
+
 type Subcategories = {
   title: string;
 };
@@ -54,28 +45,31 @@ export default function AllSubCategories({categories}: AllSubCategoriesProps) {
 
       {categories.map((cat, index) => (
        <>
-        <section key={index} className={`bg-categoryBg py-[32px] px-[12px] rounded-lg `}>
+        <section key={index} className={`bg-filterBg py-[32px] px-[12px] rounded-lg `}>
          
 
           {/* Items Grid */}
           <div className="grid grid-cols-4 gap-4 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-7">
-            {cat.subcategories.map((product: Subcategories, pIdx: number) => (
-              <Link
-                key={pIdx}
-                href={`/search?name=${encodeURIComponent(product.title)}`}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="rounded-full overflow-hidden">
-                  <Image
-                    src={`/categories.png`}
-                    alt={product.title}
-                    width={80}
-                    height={80}
-                    className="object-cover h-[55px] w-[55px] md:h-[100px] md:w-[100px]"
-                  />
-                </div>
-                <p className="mt-2 text-sm text-primary font-medium">{product.title}</p>
-              </Link>
+            {cat.subcategories.map((cat: Subcategories, pIdx: number) => (
+               <Link
+                          key={index}
+                          href={`/search?name=${encodeURIComponent(cat.title)}`}
+                          className="flex flex-col   items-center    text-center text-center"
+                        >
+                          <div className="rounded-full overflow-hidden">
+                            <Image
+                              // src={cat.image}
+                              src={'/categories.png'}
+                              alt={cat.title}
+                              width={80}
+                              height={80}
+                                              className="object-cover w-full"
+              
+                            />
+                          </div>
+                          <p className="mt-2 text-sm text-primary font-medium">{cat.title}</p>
+                          
+                        </Link>
             ))}
           </div>
         </section>
@@ -188,9 +182,8 @@ export default function AllSubCategories({categories}: AllSubCategoriesProps) {
       <h3 className="text-[27px] font-semibold leading-[110%] text-primary">
   { "₦"+item.price.toLocaleString()} </h3>
 
+<span className="text-sm text-description min-h-5"> {item.fixed?`Fixed Price`:`(Negotiable)`} </span>
 
-{item.fixed?     <span className="text-sm text-description min-h-5"> {`(fixed price)`} </span>:<span className="text-sm text-description min-h-5">  </span>
-}
           </div>
 
           <div > 

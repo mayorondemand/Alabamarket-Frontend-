@@ -4,8 +4,7 @@ import { useState } from "react";
 import Profile from "./components/Profile";
 import Notifications from "./components/Notifications";
 import Link from "next/link";
-import { ArrowLeft, Component } from "lucide-react";
-import { User, Bell, Globe, HelpCircle, LogOut } from 'lucide-react';
+import { User, Bell, Globe, HelpCircle,ArrowLeft, } from 'lucide-react';
 import Language from "./components/Language";
 import LogoutPopUp from "../components/LogoutPopUp";
 const Page = () => {
@@ -19,26 +18,8 @@ const [showLogout,setShowLogout]=useState(false)
       { id: 'notifications', label: 'Notification Preferences', icon: <Bell size={20} />, component:<Notifications  /> },
       { id: 'language', label: 'Language Preferences', icon: <Globe size={20} />,component:<Language  /> },
       { id: 'support', label: 'Help & Support', icon: <HelpCircle size={20} /> },
-    //   { id: 'logout', label: 'Logout', icon: <LogOut size={18} /> },
     ];
-  let activeComponent=menuItems.find((m) => m.id === activePage)
-const [open,setOpen]=useState(true)
-  const renderContent = () => {
-    switch (activePage) {
-      case "profile":
-        return (
-         <Profile   />
-        );
-      default:
-        return (
-          <div >
-              {menuItems.find((m) => m.id === activePage)?.component}
-          
-            
-          </div>
-        );
-    }
-  };
+
 
   return (
     <main className="container  h-fit flex flex-col gap-2 md:gap-16 ">
@@ -114,7 +95,8 @@ const [open,setOpen]=useState(true)
         </aside>
 {/*   */}
         {/* Content */}
-        <section className="flex-1 overflow-y-auto rounded-md">{renderContent()}</section>
+        <section className="flex-1 overflow-y-auto rounded-md">              {menuItems.find((m) => m.id === activePage)?.component}
+</section>
       </div>
 
       {/* --- Mobile: show either sidebar OR content --- */}
@@ -150,8 +132,8 @@ const [open,setOpen]=useState(true)
         </aside>
         ) : (
           <section className="w-full">
-           
-            {renderContent()}
+                         {menuItems.find((m) => m.id === activePage)?.component}
+
           </section>
         )}
       </div>
