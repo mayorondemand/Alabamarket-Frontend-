@@ -41,7 +41,7 @@ const socialLinks = [
 const Footer = () => {
     const pathname = usePathname();
 
-    const hideFooterRoutes = ["/buyer/chats","/auth/signup"];
+    const hideFooterRoutes = ["/buyer/chats","/auth/signup",'/seller','/seller/communication'];
   const shouldHideFooter = hideFooterRoutes.includes(pathname);
 
   return (

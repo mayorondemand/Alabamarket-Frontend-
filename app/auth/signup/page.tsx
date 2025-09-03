@@ -43,6 +43,7 @@ export default function Signup() {
   });
   const [useEmail, setUseEmail] = useState(true);
   const [countdown, setCountdown] = useState(60);
+  
 const sendOtp = async (contact: string) => {
   const response = await endpointroute.post(
     "auth/register", 
@@ -56,7 +57,7 @@ const sendOtp = async (contact: string) => {
 
   return response.data; // axios already parses JSON
 };
-
+// 08161134424
   // Forms
   const {
     register,

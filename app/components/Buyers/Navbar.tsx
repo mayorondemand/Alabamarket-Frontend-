@@ -2,24 +2,18 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Heart, User, ScanSearch, Search,Bell,MessageSquare, } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { MapPin, Heart, User, Bell,MessageSquare, } from 'lucide-react';
 import { useState } from 'react';
 import LogoutPopUp from '../LogoutPopUp';
 import { usePathname } from 'next/navigation';
+import SearchPage from './Search';
 const Navbar = () => {
-const [searchValue,setSearchValue]=useState('')
-const router=useRouter()
+
     const pathname = usePathname();
 
-    const search=()=>{
-if(searchValue.trim()!=='')
-router.push(`/search?search=${searchValue}`)
-    }
+   
 
-const changeSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-  setSearchValue(e.target.value);
-}
+
 let isAuthenticated=false
 const IconLink = ({
   href,
@@ -44,7 +38,10 @@ const IconLink = ({
 );
 const [showPopUp,setShowPopUp]=useState(false)
 const [showLogout,setShowLogout]=useState(false)
- const hideFooterRoutes = ["/auth/signup"];
+ const hideFooterRoutes = ["/auth/signup",'/seller','/seller/communication'];
+  // const hideFooterRoutes = ['/seller'];
+
+
   const shouldHideFooter = hideFooterRoutes.includes(pathname);
 const routes=()=>{
   return     <div className="flex flex-col items-start justify-start gap-[20px] text-sm" onClick={(()=>{
@@ -97,24 +94,8 @@ const routes=()=>{
           </div>
         </div>
 
-        <form  onSubmit={(e) => {
-    e.preventDefault();
-    search();
-  }} className="flex flex-1 max-w-2xl items-center bg-white rounded-md px-3 py-2 mx-auto">
-          <input
-            type="search"
-            
-            value={searchValue}
-            onChange={changeSearchValue}
-            placeholder="I’m looking for…."
-            className="flex-1 outline-none text-sm text-gray-800 placeholder:text-gray-400"
-          />
-          <ScanSearch size={21} className="text-primary mr-2 cursor-pointer" />
-          <button type='submit' className="bg-primary text-white rounded-full p-1" onClick={search}>
-            <Search size={18} />
-          </button>
-        </form>
-
+       
+<SearchPage />
         
 <div className="flex items-center gap-6 text-sm">
   <IconLink

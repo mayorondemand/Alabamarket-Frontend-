@@ -41,11 +41,19 @@ module.exports = {
   received:"#FEFEFE",
   emojiBg:"#EFEEEE",
   verifying:"#D6DBEB",
-  verifyText:"ACB3CC",
-  
-
-    
-
+  verifyText:"#ACB3CC",
+  sellerAsideActiveBg:"#F4E9C1",
+  notificationSellerBg:"#CFD4E7",
+  highestViewed:"#CDD0DC",
+  seller:"#F5F6FC",
+  liveColor:"#2DC20F",
+  pendingColor:"#BE9709",
+  boostedBg:"#9AA2BC",
+  liveBg:"#DBFCD4",
+  pendingBg:"#FFF7DB",
+  edit:"#1935C4",
+  pause:"#8785A0",
+ 
       },
       
        fontFamily: {

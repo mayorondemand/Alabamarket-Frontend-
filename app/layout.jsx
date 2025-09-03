@@ -27,6 +27,7 @@ openGraph: {
 import Footer from "./components/Buyers/Footer"
 import Navbar from "./components/Buyers/Navbar"
 import ReactQueryProvider from "./providers/QueryProvider";
+import Search from "./search/page";
 
 export default function RootLayout({ children }) {
   return (
@@ -50,7 +51,8 @@ export default function RootLayout({ children }) {
               
     <NavbarWrapper>
       <Navbar />
-      <div className="py-6 mt-20 flex flex-col ">
+      <div className=" flex flex-col py-6 mt-20 lg:py-0 md:mt-0">
+        {/* py-6 mt-20 */}
         {children}
       </div>
       <Footer />

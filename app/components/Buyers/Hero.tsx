@@ -11,7 +11,7 @@ Find trusted electronics from Alaba sellers
 
    <p className="text-description text-[17px] md:text-[21px] mb-4 lg:mb-0 lg:mt-4">Built with the Alaba traders in mind. The market is now online.</p>
 
-  <SearchPage />
+ <div className="w-full lg:hidden"> <SearchPage /></div>
 </div>
 }
 export default Hero
