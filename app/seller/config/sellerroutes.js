@@ -20,7 +20,7 @@ export const User_Routes = [
   
  
   {
-    path: "/seller/insignts",
+    path: "/seller/insights",
     label: "Insights & Analytics",
     icon: (
      <ChartSpline />

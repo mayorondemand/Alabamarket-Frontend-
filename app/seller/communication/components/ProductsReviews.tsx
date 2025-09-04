@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import ReplyReview from "./ReplyReview";
 const reviews = [
   {
@@ -95,13 +94,19 @@ const CommentIcon = () => (
   <path d="M3.9987 13.6667L2.66536 13.6667C2.45425 13.8779 2.49902 13.6667 1.99902 13.6667C1.72658 13.5503 1.33159 13.9671 1.33203 13.6667L1.33203 4.33333C1.33203 3.96667 1.4627 3.65289 1.72403 3.392C1.98537 3.13111 2.29914 3.00044 2.66536 3H13.332C13.6987 3 14.0127 3.13067 14.274 3.392C14.5354 3.65333 14.6658 3.96711 14.6654 4.33333V12.3333C14.6654 12.7 14.5349 13.014 14.274 13.2753C14.0131 13.5367 13.6991 13.6671 13.332 13.6667H3.9987ZM3.43203 12.3333H13.332V4.33333H2.66536V13.0833L3.43203 12.3333ZM4.66536 11H8.66537C8.85425 11 9.0127 10.936 9.1407 10.808C9.2687 10.68 9.33248 10.5218 9.33203 10.3333C9.33159 10.1449 9.26759 9.98667 9.14003 9.85867C9.01248 9.73067 8.85425 9.66667 8.66537 9.66667H4.66536C4.47648 9.66667 4.31825 9.73067 4.1907 9.85867C4.06314 9.98667 3.99914 10.1449 3.9987 10.3333C3.99825 10.5218 4.06225 10.6802 4.1907 10.8087C4.31914 10.9371 4.47737 11.0009 4.66536 11ZM4.66536 9H11.332C11.5209 9 11.6794 8.936 11.8074 8.808C11.9354 8.68 11.9991 8.52178 11.9987 8.33333C11.9983 8.14489 11.9343 7.98667 11.8067 7.85867C11.6791 7.73067 11.5209 7.66667 11.332 7.66667H4.66536C4.47648 7.66667 4.31825 7.73067 4.1907 7.85867C4.06314 7.98667 3.99914 8.14489 3.9987 8.33333C3.99825 8.52178 4.06225 8.68022 4.1907 8.80867C4.31914 8.93711 4.47737 9.00089 4.66536 9ZM4.66536 7H11.332C11.5209 7 11.6794 6.936 11.8074 6.808C11.9354 6.68 11.9991 6.52178 11.9987 6.33333C11.9983 6.14489 11.9343 5.98667 11.8067 5.85867C11.6791 5.73067 11.5209 5.66667 11.332 5.66667H4.66536C4.47648 5.66667 4.31825 5.73067 4.1907 5.85867C4.06314 5.98667 3.99914 6.14489 3.9987 6.33333C3.99825 6.52178 4.06225 6.68022 4.1907 6.80867C4.31914 6.93711 4.47737 7.00089 4.66536 7Z" fill="#172556"/>
 </svg>
 );
-
 export default function ProductReview() {
     const [showReport,setShowReport]=useState(false)
 
+const [selectedReview,setSelectedReview]=useState(null)
+const selectReview=(review:any)=>{
+  setSelectedReview(review)
+      setShowReport(true)
+
+   }
+
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-<ReplyReview  showReport={showReport} setShowReport={setShowReport}/>
+<ReplyReview review={selectedReview} showReport={showReport} setShowReport={setShowReport}/>
       {reviews.map((review, idx) => (
         <div
           key={idx}
@@ -132,15 +137,14 @@ export default function ProductReview() {
           </div>
 
           {/* Review text */}
-          <p
-            className="text-primary max-w-xl mx-auto"
-            style={{ fontSize: 14, fontWeight: 400, fontStyle: "normal" }}
-            onClick={(()=>{
-                setShowReport(true)
-            })}
-          >
-            {review.review}
-          </p>
+         <p
+  className="text-primary max-w-xl mx-auto"
+  style={{ fontSize: 14, fontWeight: 400, fontStyle: "normal" }}
+ 
+>
+  {review.review} 
+</p>
+
 
           {/* Actions */}
          <div className="flex items-center justify-between">  <div className="flex gap-6 items-center">
@@ -151,7 +155,10 @@ export default function ProductReview() {
               <CommentIcon />{" "}
               <span className="text-grey text-[11px]">{review.comments}</span>
             </div>
-          </div>     <p className="text-primary mt-2 cursor-pointer text-[14px] underline font-[600]">Reply review</p>
+          </div>     <p className="text-primary mt-2 cursor-pointer text-[14px] underline font-[600]"  onClick={() => {
+    selectReview(review);
+   
+  }}>Reply review</p>
  </div>
         </div>
       ))}
