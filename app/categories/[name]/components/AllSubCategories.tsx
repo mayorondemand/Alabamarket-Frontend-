@@ -41,7 +41,8 @@ export default function AllSubCategories({categories}: AllSubCategoriesProps) {
             </p>
             {/* You can display a specific category name inside the map below if needed */}
           </div>
-        <SearchPage />
+         <div className="w-full lg:hidden"> <SearchPage /></div>
+        
 
       {categories.map((cat, index) => (
        <>

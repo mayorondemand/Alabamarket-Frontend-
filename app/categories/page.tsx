@@ -89,7 +89,9 @@ export default function Categories() {
               All categories 
             </p>
           </div>
-        <SearchPage />
+        {/* <SearchPage /> */}
+         <div className="w-full lg:hidden"> <SearchPage /></div>
+        
 
       {categories.map((cat, index) => (
         <section key={index} className={`p-4 gap-4 bg-filterBg rounded-lg  ${index==0?`mt-5`:`mt-5`}`}>

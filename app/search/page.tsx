@@ -60,7 +60,8 @@ const[showReport,setShowReport]=useState(false)
         </div>
       </div>
 
-      <SearchPage />
+       <div className="w-full lg:hidden"> <SearchPage /></div>
+      
 <div className='flex item-center justify-end xl:hidden'>
           <p className='underline text-primary text-[14px] font-[600]' onClick={() => {
         setShowReport(true);
