@@ -21,8 +21,8 @@ const UserLayout= ({ children }) => {
                    <div className="lg:flex items-center lg:justify-between"><div className="lg:w-1/2"> <SearchPage /> </div>
                    
                     <div className="hidden lg:flex items-center gap-3">
-                        <span className="p-2 rounded-full bg-notificationSellerBg"> <IoNotifications size={20} className="text-primary" /> </span>
-                                                <span className="p-2 rounded-full bg-notificationSellerBg"> <SiGooglemessages size={20} className="text-primary" />  </span>
+                        <span className="p-2 rounded-full bg-notificationSellerBg"> <Link href={`/seller/notification`}><IoNotifications size={20} className="text-primary" /></Link> </span>
+                                                <span className="p-2 rounded-full bg-notificationSellerBg"> <Link href={`/seller/communication`}> <SiGooglemessages size={20} className="text-primary" /></Link>  </span>
 
                         </div> </div>
 
