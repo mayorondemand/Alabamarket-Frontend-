@@ -38,9 +38,13 @@ console.log(otp)
 };
 
 export default function Signup() {
-  const [step, setStep] = useState<number>(() => {
-    return Number(localStorage.getItem("signup-step")) || 1;
-  });
+    const [step, setStep] = useState<number>(1); // default step = 1
+   useEffect(() => {
+    const storedStep = localStorage.getItem("signup-step");
+    if (storedStep) {
+      setStep(Number(storedStep));
+    }
+  }, []);
   const [useEmail, setUseEmail] = useState(true);
   const [countdown, setCountdown] = useState(60);
   

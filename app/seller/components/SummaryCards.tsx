@@ -100,7 +100,7 @@ const stats = [
 
 const SummaryCards = () => {
   return (
-    <div className="grid grid-cols-2 mb-3 lg:grid-cols-4 gap-4">
+    <main> <div className="grid grid-cols-2 mb-3 lg:grid-cols-4 gap-4">
       {stats.map((stat) => (
         <div
           key={stat.id}
@@ -118,7 +118,14 @@ const SummaryCards = () => {
           </div>
         </div>
       ))}
-    </div>
+    </div> 
+    
+    <button
+            className=" text-[17px] py-3 bg-primary text-white w-full my-4 rounded-md md:hidden"
+          >
+            Post an add 
+          </button></main>
+      
   );
 };
 

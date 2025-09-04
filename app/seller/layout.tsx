@@ -20,11 +20,17 @@ const UserLayout= ({ children }) => {
         <div className="flex-1 container flex flex-col gap-8  min-h-screen bg-seller md:py-6">
                    <div className="lg:flex items-center lg:justify-between"><div className="lg:w-1/2"> <SearchPage /> </div>
                    
-                    <div className="hidden lg:flex items-center gap-3">
-                        <span className="p-2 rounded-full bg-notificationSellerBg"> <Link href={`/seller/notification`}><IoNotifications size={20} className="text-primary" /></Link> </span>
+                    <div className="hidden lg:flex items-center gap-5">
+                        <div className="flex items-center gap-3">
+                          <span className="p-2 rounded-full bg-notificationSellerBg"> <Link href={`/seller/notification`}><IoNotifications size={20} className="text-primary" /></Link> </span>
                                                 <span className="p-2 rounded-full bg-notificationSellerBg"> <Link href={`/seller/communication`}> <SiGooglemessages size={20} className="text-primary" /></Link>  </span>
-
-                        </div> </div>
+                        </div>
+<button
+            className=" text-[17px] py-2 px-5 bg-primary text-white  rounded-md "
+          >
+            Post an add 
+          </button>
+                        </div>   </div>
 
 <div>
               {children}

@@ -22,7 +22,7 @@ const seller={
       className=" py-[8px] px-5  text-[14px] rounded-[8px] font-300 text-center w-full bg-white text-primary rounded-md"
     >       Edit store details 
      </button>,
-     img:"/eze.png",
+     img:"/store.png",
      verify:true,
 }
 
@@ -31,7 +31,7 @@ const seller={
       <div className={`hidden lg:block h-[100vh]  w-64 border bg-red p-5`}></div>
      <aside
   className={` px-6 py-10  
-     bg-primary overflow-y-scroll text-white fixed  h-[100vh] left-0 top-0
+     bg-primary overflow-y-scroll no-scrollbar text-white fixed  h-[100vh] left-0 top-0
     transition-all duration-300
     w-68
   `}
@@ -52,7 +52,7 @@ const seller={
   
 
   <div className=" flex flex-col gap-10">
-    <nav className="flex-1 overflow-y-auto">
+    <nav className="flex-1 overflow-y-auto ">
       <ul className='flex flex-col gap-10'>
         {User_Routes.map((route) => (
           <li key={route.path}>
