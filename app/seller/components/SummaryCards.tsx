@@ -68,15 +68,16 @@ const stats = [
     title: "Active Listings",
     value: 14,
     icon: ShoppingCart,
-    bg: "bg-indigo-100",
+    bg: "bg-activeListing",
     iconColor: "text-indigo-600"
   },
+  
   {
     id: 2,
     title: "Total Views",
     value: 562,
     icon: Eye,
-    bg: "bg-green-100",
+    bg: "bg-totalViews",
     iconColor: "text-green-600"
   },
   {
@@ -84,7 +85,7 @@ const stats = [
     title: "Messages from Buyers",
     value: 23,
     icon: MessageSquare,
-    bg: "bg-yellow-100",
+    bg: "bg-messagesFromBuyers",
     iconColor: "text-yellow-600"
   },
   {
@@ -92,7 +93,7 @@ const stats = [
     title: "Boosted Ads",
     value: 5,
     icon: Rocket,
-    bg: "bg-pink-100",
+    bg: "bg-boostedads",
     iconColor: "text-pink-600"
   }
 ];
@@ -103,7 +104,7 @@ const SummaryCards = () => {
       {stats.map((stat) => (
         <div
           key={stat.id}
-          className={`rounded-2xl p-4 flex flex-col gap-14 items-start ${stat.bg}`}
+          className={`rounded-2xl p-4 flex flex-col gap-14 items-start ${stat.bg} md:px-6`}
         >
           {/* Icon wrapper */}
           <div className="p-2 bg-white rounded-full flex items-center justify-center mb-3">

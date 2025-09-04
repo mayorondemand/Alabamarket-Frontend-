@@ -106,7 +106,7 @@ const routes=()=>{
   />
 
   <IconLink
-    href="/auth"
+    href="/auth/signup"
     label="Sign in"
     icon={<User size={20} className={isAuthenticated ? 'fill-white' : 'fill-primary'} />}
     whiteBg={!isAuthenticated}

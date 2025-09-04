@@ -17,7 +17,7 @@ const UserLayout= ({ children }) => {
 <div>
     <Aside />
 </div>
-        <div className="flex-1 px-14  flex flex-col gap-8  min-h-screen bg-seller md:py-6">
+        <div className="flex-1 container flex flex-col gap-8  min-h-screen bg-seller md:py-6">
                    <div className="lg:flex items-center lg:justify-between"><div className="lg:w-1/2"> <SearchPage /> </div>
                    
                     <div className="hidden lg:flex items-center gap-3">

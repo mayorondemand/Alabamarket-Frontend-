@@ -44,7 +44,7 @@ module.exports = {
   verifyText:"#ACB3CC",
   sellerAsideActiveBg:"#F4E9C1",
   notificationSellerBg:"#CFD4E7",
-  highestViewed:"#CDD0DC",
+  highestViewed:"#E4E5E9",
   seller:"#F5F6FC",
   liveColor:"#2DC20F",
   pendingColor:"#BE9709",
@@ -53,6 +53,13 @@ module.exports = {
   pendingBg:"#FFF7DB",
   edit:"#1935C4",
   pause:"#8785A0",
+  activeListing:"#DBDEEE",
+  totalViews:"#F4F0E0",
+ boostedads:"#E7E9F3",
+ messagesFromBuyers:"#DCEEDB",
+ videoCallActiveBtnBg:"#F4FBF2",
+ videoCallInactiveBg:"#F3F2FB",
+ videoCallInactiveColor:"#8785A0"
  
       },
       

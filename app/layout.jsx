@@ -27,7 +27,6 @@ openGraph: {
 import Footer from "./components/Buyers/Footer"
 import Navbar from "./components/Buyers/Navbar"
 import ReactQueryProvider from "./providers/QueryProvider";
-import Search from "./search/page";
 
 export default function RootLayout({ children }) {
   return (
