@@ -6,7 +6,6 @@ import { MdEdit } from "react-icons/md";
 import { IoIosPause } from "react-icons/io";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 
-
 const Page=()=>{
     const product=[
         {
@@ -48,7 +47,7 @@ return <div className="flex flex-col gap-8">
         <div className="flex gap-4 flex-col md:items-center md:flex-row">  <Image src={item.img} alt={item.name} height={140} className="rounded-lg w-full md:w-40" width={140} /> 
         <div className="flex flex-col mb-2  gap-4 md:gap-10 md:mb-0">  <div className={`flex   text-primary gap-4 ${item.boosted?``:`items-center`}`}>
             <button className={`py-2 px-4 rounded-lg  border text-sm border-active ${item.boosted?'':'bg-seller cursor-rejected'}`}> {item.boosted?'Boosted':"Free"}  </button>
-            {!item.boosted&&<Link href={`/boostad`} className="font-500 text-sm  underline">Boost ad </Link>}
+            {!item.boosted&&<Link href={`/seller/boostad`} className="font-500 text-sm  underline">Boost ad </Link>}
              </div>
 
              <div>

@@ -1,11 +1,12 @@
 
+import { DeleteIcon,Delete } from 'lucide-react';
 
 interface LogoutProps {
   showLogout: boolean;
   setShowLogout: (show: boolean) => void;
 }
 
-const LogoutPopUp= ({showLogout, setShowLogout}: LogoutProps) => {
+const DeleteAccount= ({showLogout, setShowLogout}: LogoutProps) => {
 
   return (
   <>
@@ -34,6 +35,7 @@ const LogoutPopUp= ({showLogout, setShowLogout}: LogoutProps) => {
 </svg></div></div> 
 
         {/* Logout icon  */}
+      
         <div className="my-20 flex flex-col gap-5">
             <div className="flex justify-center ">
          
@@ -43,11 +45,11 @@ const LogoutPopUp= ({showLogout, setShowLogout}: LogoutProps) => {
         </div>
 
         {/* Title */}
-        <h2 className="text-primary font-[700] text-[33px] md:text-[41px]">Logout?</h2>
+        <h2 className="text-primary font-[700] text-[33px] md:text-[41px]">Delete account?</h2>
 
         {/* Description */}
         <p className="text-grey font-[400] text-[17px]  tex-center">
-            Are you sure you want to logout of your account?
+           This will permanently remove your store, all listings, messages, and reviews. You won’t be able to recover any data once deleted.
         </p>
 
         {/* Actions */}
@@ -61,7 +63,7 @@ const LogoutPopUp= ({showLogout, setShowLogout}: LogoutProps) => {
           <button
             className="flex-1 text-[17px] py-3 bg-red text-white rounded-md order-1 md:order-2"
           >
-           Yes, logout 
+           Yes, Delete  
           </button>
         </div>
         </div>
@@ -73,4 +75,4 @@ const LogoutPopUp= ({showLogout, setShowLogout}: LogoutProps) => {
   );
 };
 
-export default LogoutPopUp;
+export default DeleteAccount;

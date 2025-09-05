@@ -26,11 +26,13 @@ const reportReasons: string[] = [
      <form className="w-full  flex flex-col gap-4  p-4">
                        <div className='flex items-center justify-between'> <div><h6 className="text-primary  font-[700] text-[21px]  md:text-[33px]"> Language Preferences    </h6>      <span className="text-[13px] text-description">select your prefered langage for FAQs and help</span>
 </div>
-                        <select name="buyer" id="buyer" className='bg-neatBg p-1 border-none rounded hidden md:block'>
+                        {/* <select name="buyer" id="buyer" className='bg-neatBg p-1 border-none rounded hidden md:block'>
                           <option value="Buyer">Buyer</option>
                                                     <option value="Seller">Seller</option>
 
-                        </select></div>
+                        </select> */}
+                        
+                        </div>
  
 <form>
       <div>

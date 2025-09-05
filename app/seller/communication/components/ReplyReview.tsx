@@ -45,7 +45,7 @@ const StarIcon = () => (
     `}
     >
       <div
-        className="overflow-y-scroll  bg-white relative py-8 px-10    rounded-tr-[16px] rounded-tl-[16px] h-[800px] md:rounded-[16px] shadow-lg w-full flex flex-col gap-10 md:w-3/4 lg:w-1/2 md:my-20 md:h-fit  md:max-h-[800px] lg:max-h-[700px]" 
+        className="overflow-y-scroll  bg-white relative py-10 px-10    rounded-tr-[16px] rounded-tl-[16px] h-[650px] md:rounded-[16px] shadow-lg w-full flex flex-col gap-10  md:w-3/4 lg:w-1/2 md:my-20 md:h-fit  md:max-h-[800px] lg:max-h-[650px] 3xl:overflow-y-hidden" 
       >
         {/* Close Button */}
       <div className="flex flex-col gap-3">

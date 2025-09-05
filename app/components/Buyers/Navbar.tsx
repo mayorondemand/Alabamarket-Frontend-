@@ -38,7 +38,7 @@ const IconLink = ({
 );
 const [showPopUp,setShowPopUp]=useState(false)
 const [showLogout,setShowLogout]=useState(false)
- const hideFooterRoutes = ["/auth/signup",'/seller','/seller/communication','/seller/insights','/seller/reviews','/seller/listings','/seller/ads','/seller/settings','/seller/payments','/seller/notification',];
+ const hideFooterRoutes = ["/auth/signup",'/seller','/seller/boostad','/seller/communication','/seller/insights','/seller/reviews','/seller/listings','/seller/ads','/seller/settings','/seller/help','/seller/notification',];
   // const hideFooterRoutes = ['/seller'];
 
 

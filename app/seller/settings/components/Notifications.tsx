@@ -4,10 +4,10 @@ import clsx from 'clsx';
 
 const Notifications = () => {
   const notifications: string[] = [
-    'New listing alert',
-    'New messages from seller',
-    'Safety or scam alerts',
-    'Promotions and news from Alaba Market',
+    'Get notified for new buyers messages',
+    'Notify me when a product is approved',
+    'Alert me when a boost campaign is ending',
+    'weekly store performance summary'
   ];
 
   const [switchStates, setSwitchStates] = useState<boolean[]>(
@@ -19,7 +19,7 @@ const Notifications = () => {
       prev.map((state, i) => (i === index ? !state : state))
     );
   };
-
+// console.log('helo world ')
   return (
     <section className="flex flex-col items-center justify-center">
       <form className="w-full flex flex-col gap-4 p-4">
@@ -44,7 +44,7 @@ const Notifications = () => {
           {notifications.map((reason, index) => (
             <label
               key={index}
-              className="flex items-center justify-between cursor-pointer"
+              className="flex items-center justify-between gap-2 cursor-pointer"
             >
               <span className="text-radio text-[14px] md:text-[17px]">
                 {reason}

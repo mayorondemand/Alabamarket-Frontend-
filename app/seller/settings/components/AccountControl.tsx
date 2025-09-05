@@ -1,13 +1,13 @@
 'use client'
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import DeleteAccount from '../../components/DeleteAccountPopUp';
+const AccountControl = () => {
+  const notifications = [
+    {name:"Temporarily hide my store from buyers", title:'Deactivate account'},
+        {name:"Permanently delete account", title:'This action is irreversible'}
 
-const Notifications = () => {
-  const notifications: string[] = [
-    'New listing alert',
-    'New messages from seller',
-    'Safety or scam alerts',
-    'Promotions and news from Alaba Market',
+   
   ];
 
   const [switchStates, setSwitchStates] = useState<boolean[]>(
@@ -19,24 +19,19 @@ const Notifications = () => {
       prev.map((state, i) => (i === index ? !state : state))
     );
   };
-
+  const [showLogout,setShowLogout]=useState(false)
+// console.log('helo world ')
   return (
     <section className="flex flex-col items-center justify-center">
-      <form className="w-full flex flex-col gap-4 p-4">
+        <DeleteAccount showLogout={showLogout} setShowLogout={setShowLogout} />
+      <div className="w-full flex flex-col gap-4 p-4">
         <div className="flex items-center justify-between">
           <div>
             <h6 className="text-primary font-[700] text-[21px] md:text-[33px]">
               Notification Preferences
             </h6>
           </div>
-          {/* <select
-            name="buyer"
-            id="buyer"
-            className="bg-neatBg p-1 border-none rounded hidden md:block"
-          >
-            <option value="Buyer">Buyer</option>
-            <option value="Seller">Seller</option>
-          </select> */}
+       
         </div>
 
         {/* Notification list */}
@@ -44,14 +39,19 @@ const Notifications = () => {
           {notifications.map((reason, index) => (
             <label
               key={index}
-              className="flex items-center justify-between cursor-pointer"
+              className={`flex  justify-between gap-2 cursor-pointer md:items-center ${reason.title=='Deactivate account'?`justify-between`:`flex-col md:flex-row`}`}
             >
-              <span className="text-radio text-[14px] md:text-[17px]">
-                {reason}
+             <div>
+                 <h6 className="text-primary font-[700] text-[21px] md:text-[33px]">
+              {reason.title}
+            </h6>
+                 <span className="text-radio text-[14px] text-grey md:text-[17px]">
+                {reason.name}
               </span>
+             </div>
 
               {/* Toggle switch */}
-              <div
+            {reason.title=="Deactivate account"?  <div
   onClick={() => toggleSwitch(index)}
   className={clsx(
     'w-12 h-6 flex items-center rounded-full cursor-pointer transition-colors duration-300 border',
@@ -68,23 +68,25 @@ const Notifications = () => {
         : 'bg-primary/40 translate-x-0'
     )}
   />
-</div>
+</div>:
+          <button
+            className="mt-4 text-[17px] py-2 bg-red text-white w-full px-8 rounded-md md:w-fit"
+            onClick={()=>{
+                setShowLogout(true)
+            }}
+          >
+           Delete account 
+          </button>
+       }
 
             </label>
           ))}
         </div>
 
-        <div>
-          <button
-            type="submit"
-            className="mt-4 text-[17px] py-2 bg-primary text-white w-full px-8 rounded-md md:w-fit"
-          >
-            Save changes
-          </button>
-        </div>
-      </form>
+        
+      </div>
     </section>
   );
 };
 
-export default Notifications;
+export default AccountControl;
